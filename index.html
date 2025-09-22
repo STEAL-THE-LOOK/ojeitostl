@@ -1,67 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Inscrição | O Jeito STL</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="A sua dose semanal de inspiração, empreendedorismo e lifestyle. Participe do nosso formulário e fique por dentro de todas as novidades do podcast O Jeito STL de ser.">
+    <meta name="description" content="A sua dose semanal de inspiração, empreendedorismo e lifestyle. Participe do nosso formulário e fique por dentro de todas as novidades do podcast O Jeito STL de ser.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ojeitostl.vercel.app/">
     <meta property="og:title" content="Formulário de Inscrição | O Jeito STL">
-    <meta property="og:description"
-        content="A sua dose semanal de inspiração, empreendedorismo e lifestyle. Participe do nosso formulário e fique por dentro de todas as novidades do podcast O Jeito STL de ser.">
+    <meta property="og:description" content="A sua dose semanal de inspiração, empreendedorismo e lifestyle. Participe do nosso formulário e fique por dentro de todas as novidades do podcast O Jeito STL de ser.">
     <meta property="og:image" content="https://ojeitostl.vercel.app/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ojeitostl.vercel.app/">
     <meta property="twitter:title" content="Formulário de Inscrição | O Jeito STL">
-    <meta property="twitter:description"
-        content="A sua dose semanal de inspiração, empreendedorismo e lifestyle. Participe do nosso formulário e fique por dentro de todas as novidades do podcast O Jeito STL de ser.">
+    <meta property="twitter:description" content="A sua dose semanal de inspiração, empreendedorismo e lifestyle. Participe do nosso formulário e fique por dentro de todas as novidades do podcast O Jeito STL de ser.">
     <meta property="twitter:image" content="https://ojeitostl.vercel.app/og-image.png">
 
     <!-- Meta Pixel Code -->
+    <!-- PASSO 1: Cole o código base do Pixel do Facebook aqui -->
+    <!-- Exemplo: -->
+    <!--
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1339395697897978');
-        fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{your-pixel-id-goes-here}');
+    fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1339395697897978&ev=PageView&noscript=1" /></noscript>
+    -->
     <!-- End Meta Pixel Code -->
-    <script>
-        document.addEventListener("submit", function () {
-            fbq('track', 'Lead');
-        });
-    </script>
 
     <style>
-        /* Estilos para garantir que o iframe ocupe a tela toda */
-        body,
-        html {
+        /* Estilos base */
+        body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;
-            /* Evita barras de rolagem desnecessárias no corpo da página */
         }
 
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Logo (escondido por padrão em telas maiores) */
+        .logo-container {
+            display: none;
+            text-align: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .logo-container img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* Iframe (tela cheia por padrão em telas maiores) */
         .iframe-container {
             position: absolute;
             top: 0;
@@ -70,15 +77,27 @@
             height: 100%;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            /* Remove a borda do iframe */
+        /* Estilos para dispositivos móveis (telas com até 768px de largura) */
+        @media (max-width: 768px) {
+            body {
+                display: flex;
+                flex-direction: column;
+                height: 100vh; /* Usa a altura total da janela de visualização */
+            }
+
+            .logo-container {
+                display: block; /* Mostra o logo em dispositivos móveis */
+                flex-shrink: 0;
+            }
+
+            .iframe-container {
+                position: relative; /* Remove o posicionamento absoluto */
+                flex-grow: 1; /* Faz o container do iframe preencher o espaço restante */
+                height: auto;
+            }
         }
     </style>
 </head>
-
 <body>
 
     <!-- PASSO 2: Logo após a tag <body>, cole a parte <noscript> do código do Pixel -->
@@ -90,6 +109,10 @@
     -->
     <!-- End Meta Pixel Code -->
 
+    <div class="logo-container">
+        <img src="https://app.pipefy.com/storage/v1/signed/orgs/2c2a9e6c-1b67-475b-be9d-7dc08fa61399/uploads/e9e377bd-0289-44f9-96b7-f465cae718e0/OjeitoSTLfundobranco.png" alt="Logo O Jeito STL">
+    </div>
+
     <div class="iframe-container">
         <iframe src="https://app.pipefy.com/public/form/UfMeU3lL">
             Seu navegador não suporta iframes.
@@ -97,5 +120,5 @@
     </div>
 
 </body>
-
 </html>
+

@@ -4,40 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Inscrição | O Jeito STL</title>
 
-    <!-- SEO Meta Tags -->
+    <!-- Meta informações otimizadas -->
+    <title>Inscrição Creative Club | O Jeito STL</title>
     <meta name="description"
-        content="A sua dose semanal de inspiração, empreendedorismo e lifestyle. Participe do nosso formulário e fique por dentro de todas as novidades do podcast O Jeito STL de ser.">
+        content="Você nunca esteve tão perto dos bastidores do STEAL THE LOOK. Entre para o nosso Creative Club e conecte-se a um networking exclusivo.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ojeitostl.vercel.app/">
-    <meta property="og:title" content="Formulário de Inscrição | O Jeito STL">
+    <meta property="og:url" content="https://ojeitostl.com.br/">
+    <meta property="og:title" content="Inscrição Creative Club | O Jeito STL">
     <meta property="og:description"
-        content="A sua dose semanal de inspiração, empreendedorismo e lifestyle. Participe do nosso formulário e fique por dentro de todas as novidades do podcast O Jeito STL de ser.">
-    <meta property="og:image" content="https://ojeitostl.vercel.app/og-image.png">
+        content="Você nunca esteve tão perto dos bastidores do STEAL THE LOOK. Entre para o nosso Creative Club.">
+    <meta property="og:image"
+        content="https://static.stealthelook.com.br/wp-content/uploads/2025/09/ojeitostlfundobranco-1-20250922203403.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ojeitostl.vercel.app/">
-    <meta property="twitter:title" content="Formulário de Inscrição | O Jeito STL">
+    <meta property="twitter:url" content="https://ojeitostl.com.br/">
+    <meta property="twitter:title" content="Inscrição Creative Club | O Jeito STL">
     <meta property="twitter:description"
-        content="A sua dose semanal de inspiração, empreendedorismo e lifestyle. Participe do nosso formulário e fique por dentro de todas as novidades do podcast O Jeito STL de ser.">
-    <meta property="twitter:image" content="https://ojeitostl.vercel.app/og-image.png">
-
-
+        content="Você nunca esteve tão perto dos bastidores do STEAL THE LOOK. Entre para o nosso Creative Club.">
+    <meta property="twitter:image"
+        content="https://static.stealthelook.com.br/wp-content/uploads/2025/09/ojeitostlfundobranco-1-20250922203403.png">
 
     <!-- Meta Pixel Code -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
+        ! function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
                 n.callMethod ?
                     n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
@@ -47,97 +54,437 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1339395697897978&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
-    <script>
-        document.addEventListener("submit", function () {
-            fbq('track', 'Lead');
-        });
-    </script>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos base */
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        /* Estilos para feedback de validação */
+        .success input,
+        .success select {
+            border-color: #10B981;
+            /* green-500 */
         }
 
-        /* Logo (escondido por padrão em telas maiores) */
-        .logo-container {
-            display: none;
-            text-align: center;
-            padding-top: 30px;
-            padding-bottom: 30px;
+        .error input,
+        .error select {
+            border-color: #EF4444;
+            /* red-500 */
         }
 
-        .logo-container img {
-            max-width: 200px;
-            height: auto;
-        }
-
-        /* Iframe (tela cheia por padrão em telas maiores) */
-        .iframe-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Estilos para dispositivos móveis (telas com até 768px de largura) */
-        @media (max-width: 768px) {
-            body {
-                display: flex;
-                flex-direction: column;
-                height: 100vh;
-                /* Usa a altura total da janela de visualização */
-            }
-
-            .logo-container {
-                display: block;
-                /* Mostra o logo em dispositivos móveis */
-                flex-shrink: 0;
-            }
-
-            .iframe-container {
-                position: relative;
-                /* Remove o posicionamento absoluto */
-                flex-grow: 1;
-                /* Faz o container do iframe preencher o espaço restante */
-                height: auto;
-            }
+        .error-message {
+            color: #EF4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
         }
     </style>
 </head>
 
-<body>
+<body class="bg-stone-50 text-gray-800">
 
-    <!-- PASSO 2: Logo após a tag <body>, cole a parte <noscript> do código do Pixel -->
-    <!-- Exemplo: -->
-    <!--
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id={your-pixel-id-goes-here}&ev=PageView&noscript=1"
-    /></noscript>
-    -->
-    <!-- End Meta Pixel Code -->
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-    <div class="logo-container">
-        <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/ojeitostlfundobranco-1-20250922203403.png"
-            alt="Logo O Jeito STL">
+    <div class="min-h-screen flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+
+        <div class="w-full max-w-6xl mx-auto lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+
+            <!-- Coluna de Texto -->
+            <div class="bg-white p-8 rounded-2xl shadow-2xl w-full">
+                <div class="mb-6">
+                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/ojeitostlfundobranco-1-20250922203403.png"
+                        alt="Logo O Jeito STL" class="w-full h-auto">
+                </div>
+
+                <h1 class="text-center lg:text-left text-4xl md:text-5xl font-bold text-gray-900 leading-snug">
+                    Você nunca esteve tão perto dos bastidores do STEAL THE LOOK
+                </h1>
+                <p class="text-center lg:text-left mt-4 text-lg text-gray-600 leading-relaxed">
+                    O Jeito STL evoluiu para o nosso Creative Club. Um espaço onde você entra nos bastidores, recebe
+                    estratégias que funcionam de verdade e se conecta a um networking exclusivo. Aqui, você amplia sua
+                    identidade profissional, se mantém atualizada e aprende a vender de um jeito mais cool. Seja a
+                    primeira a saber mais: entre no nosso grupo! O acesso à ele será enviado para o e-mail cadastrado
+                    aqui.
+                </p>
+            </div>
+
+            <!-- Coluna do Formulário -->
+            <div id="mc_embed_shell" class="mt-10 lg:mt-0">
+                <div id="mc_embed_signup" class="bg-white p-8 rounded-2xl shadow-2xl w-full">
+                    <form
+                        action="https://stealthelook.us5.list-manage.com/subscribe/post?u=ddba658ade1d826d0228a3788&id=da90eed58b&f_id=00ddc1e1f0"
+                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                        target="hidden_iframe" novalidate>
+
+                        <div id="mc_embed_signup_scroll" class="space-y-6">
+
+                            <!-- Nome Completo -->
+                            <div class="mc-field-group">
+                                <label for="mce-ojeitostl_nome" class="block text-base font-medium text-gray-700">Nome
+                                    completo</label>
+                                <input type="text" name="ojeitostl_nome"
+                                    class="required mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base transition-colors duration-200"
+                                    id="mce-ojeitostl_nome" required>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL" class="block text-base font-medium text-gray-700">E-mail</label>
+                                <input type="email" name="EMAIL"
+                                    class="required email mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base transition-colors duration-200"
+                                    id="mce-EMAIL" required>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <!-- WhatsApp com DDD -->
+                            <div class="mc-field-group">
+                                <label for="mce-ojeitostl_telefone"
+                                    class="block text-base font-medium text-gray-700">WhatsApp com DDD</label>
+                                <input type="tel" name="ojeitostl_telefone"
+                                    class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base transition-colors duration-200"
+                                    id="mce-ojeitostl_telefone" placeholder="(XX) XXXXX-XXXX">
+                                <div class="error-message"></div>
+                            </div>
+
+                            <!-- Situação de Trabalho -->
+                            <div class="mc-field-group">
+                                <label for="mce-ojeitostl_situacao_trabalho"
+                                    class="block text-base font-medium text-gray-700">Conta pra gente qual dessas opções
+                                    é a que mais te representa no momento?</label>
+                                <select name="ojeitostl_situacao_trabalho"
+                                    class="required mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base transition-colors duration-200"
+                                    id="mce-ojeitostl_situacao_trabalho" required>
+                                    <option value="" disabled selected>Selecione sua situação</option>
+                                    <option value="Profissional que trabalha com marketing">Profissional que trabalha
+                                        com marketing</option>
+                                    <option value="Profissional que trabalha com conteúdo">Profissional que trabalha com
+                                        conteúdo</option>
+                                    <option value="Profissional que trabalha com com moda">Profissional que trabalha com
+                                        com moda</option>
+                                    <option value="Criadora de conteúdo e/ou influenciadora">Criadora de conteúdo e/ou
+                                        influenciadora</option>
+                                    <option value="Empreendedora">Empreendedora</option>
+                                    <option value="Profissional em transição de carreira">Profissional em transição de
+                                        carreira</option>
+                                    <option value="Estudante">Estudante</option>
+                                </select>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <!-- Localidade (Estado) -->
+                            <div class="mc-field-group">
+                                <label for="mce-ojeitostl_estado" class="block text-base font-medium text-gray-700">De
+                                    qual cantinho do Brasil você é?</label>
+                                <select name="ojeitostl_estado"
+                                    class="required mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base transition-colors duration-200"
+                                    id="mce-ojeitostl_estado" required>
+                                    <option value="" disabled selected>Selecione seu estado</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <!-- Interesse em Investir -->
+                            <div class="mc-field-group input-group">
+                                <strong class="text-base font-medium text-gray-900">Você estaria disposta a investir pra
+                                    ter acesso aos bastidores reais da produção de conteúdo STL e processos internos,
+                                    encontros, clube fechado pra networking e outros benefícios?</strong>
+                                <ul class="mt-2 space-y-2">
+                                    <li><label class="inline-flex items-center"><input type="radio"
+                                                value="Sim, definitivamente" name="ojeitostl_disposicao_investimento"
+                                                id="mce-ojeitostl_disposicao_investimento-0"
+                                                class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"><span
+                                                class="ml-3 text-base text-gray-700">Sim,
+                                                definitivamente.</span></label></li>
+                                    <li><label class="inline-flex items-center"><input type="radio"
+                                                value="Talvez, preciso de mais detalhes"
+                                                name="ojeitostl_disposicao_investimento"
+                                                id="mce-ojeitostl_disposicao_investimento-1"
+                                                class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"><span
+                                                class="ml-3 text-base text-gray-700">Talvez, preciso de mais
+                                                detalhes.</span></label></li>
+                                    <li><label class="inline-flex items-center"><input type="radio"
+                                                value="Ainda não é prioridade pra mim"
+                                                name="ojeitostl_disposicao_investimento"
+                                                id="mce-ojeitostl_disposicao_investimento-2"
+                                                class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"><span
+                                                class="ml-3 text-base text-gray-700">Ainda não é prioridade pra
+                                                mim.</span></label></li>
+                                </ul>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <div id="mce-responses" class="clear foot">
+                                <div class="response" id="mce-error-response" style="display: none;"></div>
+                                <div class="response" id="mce-success-response" style="display: none;"></div>
+                            </div>
+
+                            <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                <input type="text" name="b_ddba658ade1d826d0228a3788_da90eed58b" tabindex="-1" value="">
+                            </div>
+
+                            <div class="clear foot pt-2">
+                                <input type="submit" name="subscribe" id="mc-embedded-subscribe"
+                                    class="w-full bg-indigo-600 text-white text-lg font-semibold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    value="Entrar para o grupo" disabled>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="text-center mt-12 pb-4">
+            <p class="text-gray-500">&copy; 2025 O Jeito STL. Todos os direitos reservados.</p>
+        </footer>
     </div>
 
-    <div class="iframe-container">
-        <iframe src="https://app.pipefy.com/public/form/UfMeU3lL">
-            Seu navegador não suporta iframes.
-        </iframe>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('mc-embedded-subscribe-form');
+            const nameInput = document.getElementById('mce-ojeitostl_nome');
+            const emailInput = document.getElementById('mce-EMAIL');
+            const phoneInput = document.getElementById('mce-ojeitostl_telefone');
+            const statusSelect = document.getElementById('mce-ojeitostl_situacao_trabalho');
+            const estadoSelect = document.getElementById('mce-ojeitostl_estado');
+            const investirRadios = document.querySelectorAll('input[name="ojeitostl_disposicao_investimento"]');
+            const submitButton = document.getElementById('mc-embedded-subscribe');
 
+            // --- Funções de Feedback de UI ---
+            const setError = (input, message) => {
+                const formControl = input.closest('.mc-field-group');
+                formControl.classList.remove('success');
+                formControl.classList.add('error');
+                const errorDisplay = formControl.querySelector('.error-message');
+                errorDisplay.innerText = message;
+            };
+
+            const setSuccess = (input) => {
+                const formControl = input.closest('.mc-field-group');
+                formControl.classList.remove('error');
+                formControl.classList.add('success');
+                const errorDisplay = formControl.querySelector('.error-message');
+                errorDisplay.innerText = '';
+            };
+
+            // --- Função para Habilitar/Desabilitar o Botão ---
+            const updateButtonState = () => {
+                const isNameValid = nameInput.value.trim().split(' ').length >= 2;
+                const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
+                const isStatusValid = statusSelect.value !== '';
+                const isEstadoValid = estadoSelect.value !== '';
+                const isInvestirValid = !!document.querySelector('input[name="ojeitostl_disposicao_investimento"]:checked');
+
+                if (isNameValid && isEmailValid && isStatusValid && isEstadoValid && isInvestirValid) {
+                    submitButton.disabled = false;
+                } else {
+                    submitButton.disabled = true;
+                }
+            };
+
+            // --- Funções de Validação ---
+            const validateName = () => {
+                const nameValue = nameInput.value.trim();
+                if (nameValue === '') {
+                    setError(nameInput, 'O nome completo é obrigatório.');
+                    return false;
+                } else if (nameValue.split(' ').length < 2) {
+                    setError(nameInput, 'Por favor, insira seu nome e sobrenome.');
+                    return false;
+                }
+                setSuccess(nameInput);
+                return true;
+            };
+
+            const validateEmail = () => {
+                const emailValue = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailValue === '') {
+                    setError(emailInput, 'O e-mail é obrigatório.');
+                    return false;
+                } else if (!emailRegex.test(emailValue)) {
+                    setError(emailInput, 'Por favor, insira um e-mail válido.');
+                    return false;
+                }
+                setSuccess(emailInput);
+                return true;
+            };
+
+            const validatePhone = () => {
+                const phoneValue = phoneInput.value.replace(/\D/g, '');
+                if (phoneValue !== '' && phoneValue.length < 10) {
+                    setError(phoneInput, 'O número de telefone está incompleto.');
+                    return false;
+                }
+                setSuccess(phoneInput); // Sucesso se vazio, pois é opcional
+                return true;
+            };
+
+            const validateStatus = () => {
+                if (statusSelect.value === '') {
+                    setError(statusSelect, 'Por favor, selecione sua situação atual.');
+                    return false;
+                }
+                setSuccess(statusSelect);
+                return true;
+            }
+
+            const validateEstado = () => {
+                if (estadoSelect.value === '') {
+                    setError(estadoSelect, 'Por favor, selecione seu estado.');
+                    return false;
+                }
+                setSuccess(estadoSelect);
+                return true;
+            };
+
+            const validateInvestir = () => {
+                const checked = document.querySelector('input[name="ojeitostl_disposicao_investimento"]:checked');
+                const group = document.querySelector('.input-group');
+                if (!checked) {
+                    setError(group.querySelector('input'), 'Por favor, selecione uma opção.');
+                    return false;
+                }
+                setSuccess(group.querySelector('input'));
+                return true;
+            };
+
+            // Adiciona listeners para validação em tempo real e estado do botão
+            const allInputs = [nameInput, emailInput, statusSelect, estadoSelect, ...investirRadios];
+            allInputs.forEach(input => {
+                input.addEventListener('input', updateButtonState);
+                input.addEventListener('change', updateButtonState);
+            });
+
+            nameInput.addEventListener('blur', validateName);
+            emailInput.addEventListener('blur', validateEmail);
+            phoneInput.addEventListener('blur', validatePhone);
+            statusSelect.addEventListener('blur', validateStatus);
+            estadoSelect.addEventListener('blur', validateEstado);
+            investirRadios.forEach(radio => radio.addEventListener('change', validateInvestir));
+
+            // Formatação do Telefone
+            phoneInput.addEventListener('input', (event) => {
+                let value = event.target.value.replace(/\D/g, '');
+                value = value.substring(0, 11);
+                let formattedValue = value;
+
+                if (value.length > 10) {
+                    formattedValue = `(${value.substring(0, 2)}) ${value.substring(2, 7)}-${value.substring(7, 11)}`;
+                } else if (value.length > 6) {
+                    formattedValue = `(${value.substring(0, 2)}) ${value.substring(2, 6)}-${value.substring(6, 10)}`;
+                } else if (value.length > 2) {
+                    formattedValue = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+                } else if (value.length > 0) {
+                    formattedValue = `(${value.substring(0, 2)}`;
+                }
+
+                event.target.value = formattedValue;
+            });
+
+            // Validação no envio
+            form.addEventListener('submit', (e) => {
+                const isNameValid = validateName();
+                const isEmailValid = validateEmail();
+                const isPhoneValid = validatePhone();
+                const isStatusValid = validateStatus();
+                const isEstadoValid = validateEstado();
+                const isInvestirValid = validateInvestir();
+
+                if (!isNameValid || !isEmailValid || !isPhoneValid || !isStatusValid || !isEstadoValid || !isInvestirValid) {
+                    e.preventDefault(); // Impede o envio se houver erro
+                } else {
+                    // Se o formulário for válido, dispara o evento de Lead do Pixel
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
+
+                    // Exibe o SweetAlert de sucesso após um breve intervalo
+                    setTimeout(() => {
+                        const whatsappLink = 'https://chat.whatsapp.com/L0nS11ogED13mXw1V1UHGF';
+                        let timerInterval;
+
+                        Swal.fire({
+                            title: 'Inscrição realizada!',
+                            html: `Obrigado por se inscrever!<br><br>Você será redirecionado para o nosso grupo em <b></b> segundos.<br>`,
+                            icon: 'success',
+                            timer: 10000,
+                            timerProgressBar: true,
+                            confirmButtonText: 'Acessar grupo agora!',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            didOpen: () => {
+                                const timerElement = Swal.getHtmlContainer().querySelector('b');
+                                timerInterval = setInterval(() => {
+                                    const timeLeft = Swal.getTimerLeft();
+                                    if (timeLeft) {
+                                        timerElement.textContent = Math.ceil(timeLeft / 1000);
+                                    }
+                                }, 100);
+                            },
+                            willClose: () => {
+                                clearInterval(timerInterval);
+                            }
+                        }).then((result) => {
+                            // Redireciona na mesma página se o timer acabar ou se o botão for clicado
+                            if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+                                window.location.href = whatsappLink;
+                            }
+                        });
+
+                        // Limpa o formulário e reseta o estado do botão
+                        form.reset();
+                        document.querySelectorAll('.mc-field-group').forEach(el => {
+                            el.classList.remove('success', 'error');
+                        });
+                        document.querySelectorAll('.error-message').forEach(el => {
+                            el.innerText = '';
+                        });
+                        submitButton.disabled = true;
+
+                    }, 1500); // Atraso de 1.5s para garantir o envio
+                }
+            });
+
+            // Garante que o botão comece no estado correto
+            updateButtonState();
+        });
+    </script>
 </body>
 
 </html>

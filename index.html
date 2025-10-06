@@ -238,6 +238,19 @@
         }
 
         /* --- FIM DOS ESTILOS PARA ANIMAÇÃO DE EMOJI --- */
+
+        /* --- INÍCIO DOS ESTILOS PARA ANIMAÇÃO 3D --- */
+        .team-card {
+            perspective: 1000px;
+            /* Adiciona perspectiva para o efeito 3D */
+        }
+
+        .team-card-inner {
+            transition: transform 0.4s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        /* --- FIM DOS ESTILOS PARA ANIMAÇÃO 3D --- */
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -612,92 +625,119 @@
             <div class="w-full max-w-[1500px] mx-auto px-6">
                 <div class="flex flex-col items-center gap-y-16">
 
-                    <!-- Primeira Linha: 2 Cards -->
-                    <div class="w-full flex flex-col sm:flex-row justify-center gap-x-12 gap-y-16">
+                    <!-- Primeira Linha: 3 Cards -->
+                    <div class="w-full flex flex-col sm:flex-row flex-wrap justify-center gap-x-12 gap-y-16">
                         <!-- Card Manuela -->
-                        <div class="w-full max-w-sm">
-                            <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/rectangle-16-20250930174935.png"
-                                    alt="Foto de Manuela Bordasch" class="w-full h-full object-cover filter grayscale">
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-montserrat text-xl font-bold text-gray-900">Manuela Bordasch</h3>
-                                <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Fundadora Steal
-                                    The Look, PUSH e
-                                    O Que Tem Na Sua Carteira?</p>
+                        <div class="w-full max-w-sm group team-card">
+                            <div class="team-card-inner">
+                                <div
+                                    class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/rectangle-16-20250930174935.png"
+                                        alt="Foto de Manuela Bordasch"
+                                        class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                </div>
+                                <div class="text-center">
+                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Manuela Bordasch</h3>
+                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Fundadora
+                                        Steal The Look, PUSH
+                                        e
+                                        O Que Tem Na Sua Carteira?</p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Card Laís -->
-                        <div class="w-full max-w-sm">
-                            <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/lais-miranda-20250930174935.png"
-                                    alt="Foto de Laís Miranda" class="w-full h-full object-cover filter grayscale">
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-montserrat text-xl font-bold text-gray-900">Laís Miranda</h3>
-                                <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Coordenadora de
-                                    Gente & Gestão <br>
-                                    Steal The Look</p>
+                        <div class="w-full max-w-sm group team-card">
+                            <div class="team-card-inner">
+                                <div
+                                    class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/lais-miranda-20250930174935.png"
+                                        alt="Foto de Laís Miranda"
+                                        class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                </div>
+                                <div class="text-center">
+                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Laís Miranda</h3>
+                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Coordenadora
+                                        de
+                                        Gente & Gestão <br>
+                                        Steal The Look</p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Card Isabella -->
-                        <div class="w-full max-w-sm">
-                            <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/isabella-aredes-20250930174935.png"
-                                    alt="Foto de Isabella Aredes" class="w-full h-full object-cover filter grayscale">
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-montserrat text-xl font-bold text-gray-900">Isabella Aredes</h3>
-                                <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Gerente de
-                                    Conteúdo <br> Steal The Look</p>
+                        <div class="w-full max-w-sm group team-card">
+                            <div class="team-card-inner">
+                                <div
+                                    class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/isabella-aredes-20250930174935.png"
+                                        alt="Foto de Isabella Aredes"
+                                        class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                </div>
+                                <div class="text-center">
+                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Isabella Aredes</h3>
+                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Gerente de
+                                        Conteúdo <br> Steal The Look</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Segunda Linha: 3 Cards -->
-                    <div class="w-full flex flex-col md:flex-row justify-center gap-x-12 gap-y-16">
+                    <div class="w-full flex flex-col md:flex-row flex-wrap justify-center gap-x-12 gap-y-16">
                         <!-- Card Claudiana -->
-                        <div class="w-full max-w-sm">
-                            <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/claudiana-ribeiro-20250930174935.png"
-                                    alt="Foto de Claudiana Ribeiro" class="w-full h-full object-cover filter grayscale">
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-montserrat text-xl font-bold text-gray-900">Claudiana Ribeiro</h3>
-                                <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Community Manager
-                                    <br>Steal The
-                                    Look</p>
+                        <div class="w-full max-w-sm group team-card">
+                            <div class="team-card-inner">
+                                <div
+                                    class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/claudiana-ribeiro-20250930174935.png"
+                                        alt="Foto de Claudiana Ribeiro"
+                                        class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                </div>
+                                <div class="text-center">
+                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Claudiana Ribeiro</h3>
+                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Community
+                                        Manager <br>Steal The
+                                        Look</p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Card Bruna -->
-                        <div class="w-full max-w-sm">
-                            <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/bruna-fortino-20250930174935.png"
-                                    alt="Foto de Bruna Fortino" class="w-full h-full object-cover filter grayscale">
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-montserrat text-xl font-bold text-gray-900">Bruna Fortino</h3>
-                                <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Gerente Comercial
-                                    <br>Steal The Look
-                                </p>
+                        <div class="w-full max-w-sm group team-card">
+                            <div class="team-card-inner">
+                                <div
+                                    class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/bruna-fortino-20250930174935.png"
+                                        alt="Foto de Bruna Fortino"
+                                        class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                </div>
+                                <div class="text-center">
+                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Bruna Fortino</h3>
+                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Gerente
+                                        Comercial
+                                        <br>Steal The Look
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Card Ana -->
-                        <div class="w-full max-w-sm">
-                            <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/rectangle-16-1-20251006193539.png"
-                                    alt="Foto de Ana Brum" class="w-full h-full object-cover filter grayscale">
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-montserrat text-xl font-bold text-gray-900">Ana Brum</h3>
-                                <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Estratégia
-                                    Criativa
-                                    <br>O Jeito STL
-                                </p>
+                        <div class="w-full max-w-sm group team-card">
+                            <div class="team-card-inner">
+                                <div
+                                    class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/rectangle-16-1-20251006193539.png"
+                                        alt="Foto de Ana Brum"
+                                        class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                </div>
+                                <div class="text-center">
+                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Ana Brum</h3>
+                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Estratégia
+                                        Criativa
+                                        <br>O Jeito STL
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
@@ -714,57 +754,69 @@
 
 
 
-                            <div class="w-full max-w-sm mx-auto">
-                                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/bianca-andrade-1.png"
-                                        alt="Foto de Bianca Andrade"
-                                        class="w-full h-full object-cover object-top filter grayscale">
-                                </div>
-                                <div class="text-center">
-                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Bianca Andrade</h3>
-                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">CEO da Boca
-                                        Rosa</p>
-                                </div>
-                            </div>
-
-                            <div class="w-full max-w-sm mx-auto">
-                                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/pedro-alvim-1.png"
-                                        alt="Foto de Pedro Alvim"
-                                        class="w-full h-full object-cover object-top filter grayscale">
-                                </div>
-                                <div class="text-center">
-                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Pedro Alvim</h3>
-                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Global
-                                        Marketing
-                                        Lead<br>Supercell</p>
+                            <div class="w-full max-w-sm mx-auto group team-card">
+                                <div class="team-card-inner">
+                                    <div
+                                        class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                        <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/bianca-andrade-1.png"
+                                            alt="Foto de Bianca Andrade"
+                                            class="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                    </div>
+                                    <div class="text-center">
+                                        <h3 class="font-montserrat text-xl font-bold text-gray-900">Bianca Andrade</h3>
+                                        <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">CEO da
+                                            Boca Rosa</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="w-full max-w-sm mx-auto">
-                                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/raffa-lotto-1.png"
-                                        alt="Foto de Raffa Lotto"
-                                        class="w-full h-full object-cover object-top filter grayscale">
-                                </div>
-                                <div class="text-center">
-                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Raffa Lotto</h3>
-                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">CEO da YOUPIX
-                                    </p>
+                            <div class="w-full max-w-sm mx-auto group team-card">
+                                <div class="team-card-inner">
+                                    <div
+                                        class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                        <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/pedro-alvim-1.png"
+                                            alt="Foto de Pedro Alvim"
+                                            class="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                    </div>
+                                    <div class="text-center">
+                                        <h3 class="font-montserrat text-xl font-bold text-gray-900">Pedro Alvim</h3>
+                                        <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Global
+                                            Marketing
+                                            Lead<br>Supercell</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="w-full max-w-sm mx-auto">
-                                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
-                                    <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/raquel-scherer-1.png"
-                                        alt="Foto de Raquel Scherer"
-                                        class="w-full h-full object-cover object-top filter grayscale">
+                            <div class="w-full max-w-sm mx-auto group team-card">
+                                <div class="team-card-inner">
+                                    <div
+                                        class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                        <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/raffa-lotto-1.png"
+                                            alt="Foto de Raffa Lotto"
+                                            class="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                    </div>
+                                    <div class="text-center">
+                                        <h3 class="font-montserrat text-xl font-bold text-gray-900">Raffa Lotto</h3>
+                                        <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">CEO da
+                                            YOUPIX</p>
+                                    </div>
                                 </div>
-                                <div class="text-center">
-                                    <h3 class="font-montserrat text-xl font-bold text-gray-900">Raquel Scherer</h3>
-                                    <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Consultora de
-                                        marca<br>ex
-                                        Melissa</p>
+                            </div>
+
+                            <div class="w-full max-w-sm mx-auto group team-card">
+                                <div class="team-card-inner">
+                                    <div
+                                        class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] transform-gpu transition-transform duration-300 group-hover:scale-105 ">
+                                        <img src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/raquel-scherer-1.png"
+                                            alt="Foto de Raquel Scherer"
+                                            class="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-300">
+                                    </div>
+                                    <div class="text-center">
+                                        <h3 class="font-montserrat text-xl font-bold text-gray-900">Raquel Scherer</h3>
+                                        <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">
+                                            Consultora de marca<br>ex
+                                            Melissa</p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -817,7 +869,8 @@
     <!-- INÍCIO DO BLOCO "O CREATIVE CLUB NASCEU PARA" -->
     <section id="nasceu-para" class="bg-white text-gray-900 border-b border-[#e5e7eb]">
         <div class="background-lines">
-            <div class="w-full max-w-[1500px] mx-auto px-6 py-12 md:py-20 lg:py-24 lg:pb-[200px]">
+            <div
+                class="w-full max-w-[1500px] bg-white md:bg-transparent mx-auto px-6 py-12 md:py-20 lg:py-24 lg:pb-[200px]">
                 <header class="text-center mb-16 md:mb-24">
                     <h2
                         class="section-title font-semibold text-black tracking-[4px] text-[20px] md:text-[28px] font-playfair">
@@ -1246,7 +1299,7 @@
 
     <!-- INÍCIO DA SEÇÃO 'FASES' (ACORDEÃO) -->
     <section id="fases" class="bg-white text-gray-900">
-        <div class="w-full px-0 py-12 md:py-0">
+        <div class="w-full px-0 py-0 md:py-0">
             <div id="accordion-container" class="border-t border-gray-200">
 
                 <!-- Item 1: Março -->
@@ -2778,6 +2831,66 @@
                 }
             }
             // --- FIM: LÓGICA PARA ANIMAÇÃO DE EMOJI ---
+
+            // --- INÍCIO: LÓGICA PARA ANIMAÇÃO 3D NAS IMAGENS ---
+            const isMobile = () => window.innerWidth < 768;
+            const teamCards = document.querySelectorAll('#time-stl .team-card-inner');
+
+            // Função para Desktop (Mouse Move)
+            const handleMouseMove = (e) => {
+                if (isMobile()) return;
+
+                const card = e.currentTarget;
+                const { left, top, width, height } = card.getBoundingClientRect();
+                const x = e.clientX - left;
+                const y = e.clientY - top;
+
+                const rotateX = -1 * ((height / 2 - y) / (height / 2)) * 8; // Rotação máxima de 8 graus
+                const rotateY = ((width / 2 - x) / (width / 2)) * 8;
+
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                card.querySelector('img').classList.remove('grayscale');
+                card.querySelector('img').classList.add('shadow-2xl');
+
+            };
+
+            const handleMouseLeave = (e) => {
+                if (isMobile()) return;
+                const card = e.currentTarget;
+                card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+                card.querySelector('img').classList.add('grayscale');
+                card.querySelector('img').classList.remove('shadow-2xl');
+
+            };
+
+            // Função para Mobile (Device Orientation)
+            const handleDeviceOrientation = (e) => {
+                if (!isMobile() || !e.gamma || !e.beta) return;
+
+                // Inverte gamma para um movimento mais natural (esquerda/direita)
+                // Limita a rotação para evitar movimentos bruscos
+                const rotateY = Math.max(-15, Math.min(15, e.gamma * -1));
+                // Limita a rotação para o eixo X
+                const rotateX = Math.max(-15, Math.min(15, e.beta - 45)); // O -45 ajusta o ponto "zero" da inclinação
+
+                teamCards.forEach(card => {
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+            };
+
+            // Adiciona os listeners
+            if (!isMobile()) {
+                teamCards.forEach(card => {
+                    card.addEventListener('mousemove', handleMouseMove);
+                    card.addEventListener('mouseleave', handleMouseLeave);
+                });
+            }
+
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('deviceorientation', handleDeviceOrientation);
+            }
+            // --- FIM: LÓGICA PARA ANIMAÇÃO 3D NAS IMAGENS ---
+
         });
     </script>
 </body>

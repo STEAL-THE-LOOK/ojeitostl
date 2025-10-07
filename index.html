@@ -214,6 +214,11 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <style>
+        /* --- CORREÇÃO PARA BUG DE BLEND-MODE NO IOS --- */
+        .ios-blend-fix {
+            transform: translateZ(0);
+        }
+
         /* Estilo base para a página */
         body {
             font-family: 'Inter', sans-serif;
@@ -491,7 +496,7 @@
                         <div class="relative">
                             <!-- Camada de base para o efeito de mesclagem -->
                             <h1
-                                class="font-playfair text-[48px] sm:text-5xl md:text-7xl font-light leading-tight mix-blend-overlay text-white">
+                                class="font-playfair text-[48px] sm:text-5xl md:text-7xl font-light leading-tight mix-blend-overlay text-white ios-blend-fix">
                                 Respire<br>
                                 o jeito STL<br>
                                 de fazer<br>

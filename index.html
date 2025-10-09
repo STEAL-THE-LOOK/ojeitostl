@@ -139,7 +139,7 @@
           "name": "O que tá incluso no Creative Club?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Acesso ao Instagram privado, com fórum de dúvidas e networking;\\nOportunidade de visitar o escritório STL em SP nas ativações presenciais (1 por mês).\\n\\nE todo mês você recebe:\\n[1] entrevista com profissional referência no tema de cada fase;\\n[1] playbook com curadoria de conteúdo da entrevista;\\n[1] framework para aplicar no dia a dia;\\n[1] newsletter mensal com tendências e ferramentas;\\n[1] encontro ao vivo para aprofundar e trocar."
+            "text": "Acesso ao Instagram privado com fórum de dúvidas e networking, além da oportunidade de visitar o escritório STL em São Paulo nas ativações presenciais mensais. Todo mês você recebe uma entrevista com profissional referência no tema da fase, um playbook com curadoria desse conteúdo, um framework para aplicar no dia a dia, uma newsletter com tendências e ferramentas e um encontro ao vivo para aprofundar e trocar."
           }
         },
         {
@@ -155,7 +155,7 @@
           "name": "Teremos encontros presenciais?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "    Sim. Além dos encontros online, teremos experiências presenciais em São Paulo, no escritório STL. Os acessos às ativações presenciais são limitados. Isso significa que, mesmo garantindo seu ingresso ao clube, a participação nas ativações presenciais será definida conforme a disponibilidade de agenda do escritório e engajamento dos participantes no clube. Lembramos que os custos com transporte, hospedagem e demais despesas ficam sob responsabilidade dos participantes."
+            "text": "Sim. Além dos encontros online, teremos experiências presenciais em São Paulo, no escritório STL. Os acessos às ativações presenciais são limitados e a participação dependerá da disponibilidade de agenda do escritório e do engajamento no clube. Custos com transporte, hospedagem e demais despesas ficam sob responsabilidade das participantes."
           }
         },
         {
@@ -163,7 +163,7 @@
           "name": "Quem pode participar? Isso é pra mim?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "O Clube foi feito para:\\n- Profissionais de marketing, moda e conteúdo;\\n- Criadoras e influenciadoras;\\n- Empreendedoras e líderes de negócio;\\n- Estudantes antenadas;\\n- Pessoas em transição de carreira;\\n- Pessoas curiosas que querem viver o jeito STL de perto."
+            "text": "O clube é indicado para profissionais de marketing, moda e conteúdo, criadoras e influenciadoras, empreendedoras e líderes de negócio, estudantes antenadas, pessoas em transição de carreira e quem deseja viver o jeito STL de perto."
           }
         },
         {
@@ -179,14 +179,32 @@
     {
       "@type": "VideoObject",
       "@id": "https://ojeitostl.com.br/#creative-club-video",
+      "url": "https://ojeitostl.com.br/#creative-club-video",
       "name": "Steal The Look - O Jeito STL de Fazer",
       "description": "Vídeo institucional do Steal The Look, mostrando a cultura, a equipe e o processo criativo por trás da maior fonte de inspiração de moda do Brasil.",
-      "thumbnailUrl": "https://i.ytimg.com/vi/lCTB-WBavgk/maxresdefault.jpg",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/lCTB-WBavgk/hqdefault.jpg",
+        "https://i.ytimg.com/vi/lCTB-WBavgk/maxresdefault.jpg"
+      ],
       "uploadDate": "2023-01-01",
       "duration": "PT1M30S",
+      "contentUrl": "https://www.youtube.com/watch?v=lCTB-WBavgk",
       "embedUrl": "https://www.youtube.com/embed/lCTB-WBavgk",
       "inLanguage": "pt-BR",
-      "publisher": { "@id": "https://ojeitostl.com.br/#organization" }
+      "isFamilyFriendly": true,
+      "publisher": { "@id": "https://ojeitostl.com.br/#organization" },
+      "potentialAction": {
+        "@type": "WatchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.youtube.com/watch?v=lCTB-WBavgk",
+          "inLanguage": "pt-BR",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        }
+      }
     }
   ]
 }
@@ -330,6 +348,26 @@
     .blinking-cursor {
       animation: blink 1s step-end infinite;
       font-weight: 300;
+    }
+
+    /* --- LOADER DO VÍDEO HERO --- */
+    #hero-video-loader {
+      backdrop-filter: blur(4px);
+    }
+
+    .video-loader-spinner {
+      width: 3rem;
+      height: 3rem;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-top-color: #ffffff;
+      border-radius: 9999px;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* --- ESTILOS PARA ANIMAÇÃO DE EMOJI --- */
@@ -494,14 +532,20 @@
   <div class="relative h-screen w-full">
 
     <!-- Fundo com Vídeo -->
-    <div class="absolute inset-0">
-      <video autoplay loop playsinline muted preload="none"
+    <div class="absolute inset-0" id="hero-video-wrapper">
+      <video id="hero-background-video" autoplay loop playsinline muted preload="none"
         poster="https://static.stealthelook.com.br/wp-content/uploads/2025/09/ojeitostlfundobranco-1-20250922203403.png"
-        class="w-full h-full object-cover filter grayscale">
-        <source src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/v2_STL_HOME.mp4" type="video/mp4">
+        class="w-full h-full object-cover filter grayscale opacity-0 transition-opacity duration-700">
+        <source src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/v3_STL_HOME1.mp4" type="video/mp4">
         Seu navegador não suporta a tag de vídeo.
       </video>
       <div class="absolute inset-0 bg-black/60"></div>
+      <div id="hero-video-loader"
+        class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/80 transition-opacity duration-500"
+        role="status" aria-live="polite">
+        <div class="video-loader-spinner" aria-hidden="true"></div>
+        <span class="mt-2 text-xs font-montserrat tracking-[0.4em] uppercase text-white/70">Carregando vídeo</span>
+      </div>
     </div>
 
     <!-- Conteúdo da Página -->
@@ -2669,6 +2713,61 @@
 
     // --- SCRIPT PARA A INTERATIVIDADE DO ACORDEÃO E ANIMAÇÃO DE TEXTO ---
     document.addEventListener('DOMContentLoaded', function () {
+      // --- Loader do vídeo hero ---
+      const heroVideo = document.getElementById('hero-background-video');
+      const heroLoader = document.getElementById('hero-video-loader');
+
+      if (heroVideo && heroLoader) {
+        let fallbackId = null;
+
+        const hideLoader = () => {
+          if (heroLoader.classList.contains('hidden')) {
+            return;
+          }
+
+          heroLoader.classList.add('opacity-0', 'pointer-events-none');
+
+          const onTransitionEnd = () => {
+            heroLoader.classList.add('hidden');
+            heroLoader.removeEventListener('transitionend', onTransitionEnd);
+          };
+
+          heroLoader.addEventListener('transitionend', onTransitionEnd);
+        };
+
+        const revealVideo = () => {
+          heroVideo.classList.remove('opacity-0');
+          heroVideo.classList.add('opacity-100');
+          hideLoader();
+        };
+
+        const clearFallback = () => {
+          if (fallbackId !== null) {
+            clearTimeout(fallbackId);
+            fallbackId = null;
+          }
+        };
+
+        const handleReady = () => {
+          clearFallback();
+          revealVideo();
+        };
+
+        heroVideo.addEventListener('loadeddata', handleReady, { once: true });
+        heroVideo.addEventListener('canplaythrough', handleReady, { once: true });
+        heroVideo.addEventListener('canplay', handleReady, { once: true });
+
+        heroVideo.addEventListener('error', () => {
+          clearFallback();
+          hideLoader();
+        });
+
+        fallbackId = window.setTimeout(() => {
+          fallbackId = null;
+          revealVideo();
+        }, 6000);
+      }
+
       // --- Animação de Texto ---
       const animatedTextElements = document.querySelectorAll('.animated-text-target');
       if (animatedTextElements.length > 0) {

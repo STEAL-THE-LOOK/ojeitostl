@@ -508,11 +508,12 @@
   <!-- End Meta Pixel Code -->
 
   <!-- Header Fixo para Desktop -->
-  <header id="page-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300 ease-in-out py-6 md:py-4">
-    <div class="w-full max-w-[1500px] mx-auto px-6 md:px-10 flex justify-between items-center">
+  <header id="page-header" class="fixed top-0 left-0 right-0 z-30 transition-all duration-300 ease-in-out">
+    <div id="header-desktop-content"
+      class="hidden md:flex w-full max-w-[1500px] mx-auto px-6 md:px-10 py-4 md:py-5 justify-between items-center">
       <nav class="hidden md:block w-full">
         <ul id="main-nav"
-          class="flex flex-wrap items-center justify-between w-full gap-x-6 gap-y-2 text-sm text-gray-300 font-montserrat">
+          class="flex flex-wrap items-center justify-between w-full gap-x-6 md:gap-x-10 gap-y-2 text-sm text-gray-300 font-montserrat">
           <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
           <li><a href="#clube" class="hover:text-white transition-colors">O que é</a></li>
           <li><a href="#perfis" class="hover:text-white transition-colors">Para quem é</a></li>
@@ -525,6 +526,35 @@
           <li><a href="#faq" class="hover:text-white transition-colors">Dúvidas</a></li>
         </ul>
       </nav>
+    </div>
+    <div id="countdown-bar" class="flex w-full bg-black/40 backdrop-blur-sm border-t border-white/10">
+      <div id="countdown-inner"
+        class="w-full max-w-[1500px] mx-auto px-6 md:px-10 pt-6 pb-[1.8rem] md:py-5 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-between gap-3 md:gap-16 text-left md:text-center">
+        <span id="countdown-headline" class="text-sm md:text-base text-gray-100 font-playfair">Aproveite o lote</span>
+        <div id="countdown-wrapper"
+          class="flex flex-wrap items-center justify-start md:justify-end gap-4 md:gap-12 text-gray-100 text-sm md:text-base">
+          <div class="flex items-center gap-2 font-playfair">
+            <span data-countdown-value="days"
+              class="text-lg md:text-2xl leading-none text-white font-montserrat">00</span>
+            <span data-countdown-label class="text-[11px] md:text-xs font-montserrat text-gray-300">dias</span>
+          </div>
+          <div class="flex items-center gap-2 font-playfair">
+            <span data-countdown-value="hours"
+              class="text-lg md:text-2xl leading-none text-white font-montserrat">00</span>
+            <span data-countdown-label class="text-[11px] md:text-xs font-montserrat text-gray-300">horas</span>
+          </div>
+          <div class="flex items-center gap-2 font-playfair">
+            <span data-countdown-value="minutes"
+              class="text-lg md:text-2xl leading-none text-white font-montserrat">00</span>
+            <span data-countdown-label class="text-[11px] md:text-xs font-montserrat text-gray-300">minutos</span>
+          </div>
+          <div class="flex items-center gap-2 font-playfair">
+            <span data-countdown-value="seconds"
+              class="text-lg md:text-2xl leading-none text-white font-montserrat">00</span>
+            <span data-countdown-label class="text-[11px] md:text-xs font-montserrat text-gray-300">segundos</span>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -560,28 +590,14 @@
           </aside>
 
           <main class="flex flex-col items-center justify-center text-center order-2 md:order-2">
-            <div class="relative">
-              <!-- Camada de base para o efeito de mesclagem -->
-              <h1
-                class="font-playfair text-[48px] sm:text-5xl md:text-7xl font-light leading-tight mix-blend-overlay text-white ios-blend-fix">
-                Respire<br>
-                o jeito STL<br>
-                de fazer<br>
-                <span class="font-normal px-4 py-1 mt-4 inline-block tracking-[0px] font-montserrat">
-                  [ <span class="animated-text-target"></span><span class="blinking-cursor">|</span> ]
-                </span>
-              </h1>
-              <!-- Camada superior para legibilidade com opacidade -->
-              <h1
-                class="absolute inset-0 font-playfair text-[48px] sm:text-5xl md:text-7xl font-light leading-tight opacity-25 pointer-events-none">
-                Respire<br>
-                o jeito STL<br>
-                de fazer<br>
-                <span class="font-normal px-4 py-1 mt-4 inline-block tracking-[0px] font-montserrat">
-                  [ <span class="animated-text-target"></span><span class="blinking-cursor">|</span> ]
-                </span>
-              </h1>
-            </div>
+            <h1 class="font-playfair text-[48px] sm:text-5xl md:text-7xl font-light leading-tight text-gray-400">
+              Respire<br>
+              o jeito STL<br>
+              de fazer<br>
+              <span class="font-normal px-4 py-1 mt-4 inline-block tracking-[0px] font-montserrat text-gray-400">
+                [ <span class="animated-text-target"></span><span class="blinking-cursor">|</span> ]
+              </span>
+            </h1>
           </main>
 
           <aside class="flex items-center justify-center md:h-full order-3 md:order-3">
@@ -690,7 +706,7 @@
 
     <div class="w-full flex justify-center">
       <a href="#participar"
-        class="bg-black mb-12 text-white font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors hover:bg-blue-700 pointer-events-auto whitespace-nowrap">
+        class="bg-black mb-12 text-white font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors pointer-events-auto whitespace-nowrap">
         Quero ser parte do clube
       </a>
     </div>
@@ -1057,7 +1073,7 @@
 
     <div class="w-full flex justify-center">
       <a href="#participar"
-        class="bg-[#ccc] mb-12 text-black font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors hover:bg-blue-700 pointer-events-auto whitespace-nowrap">
+        class="bg-[#ccc] mb-12 text-black font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors  pointer-events-auto whitespace-nowrap">
         Quero ser parte do clube
       </a>
     </div>
@@ -1855,7 +1871,7 @@
 
     <div class="w-full flex justify-center">
       <a href="#participar"
-        class="bg-[#000] mb-16 text-white font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors hover:bg-blue-700 pointer-events-auto whitespace-nowrap">
+        class="bg-[#000] mb-16 text-white font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors  pointer-events-auto whitespace-nowrap">
         Quero ser parte do clube
       </a>
     </div>
@@ -2130,7 +2146,7 @@
 
     <div class="w-full flex justify-center">
       <a href="#participar"
-        class="bg-[#CDDC39] mb-12 text-black font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors hover:bg-blue-700 pointer-events-auto whitespace-nowrap">
+        class="bg-[#CDDC39] mb-12 text-black font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors  pointer-events-auto whitespace-nowrap">
         Quero ser parte do clube
       </a>
     </div>
@@ -2662,6 +2678,12 @@
 
     // --- Script do Header Fixo ---
     const pageHeader = document.getElementById('page-header');
+    const countdownBar = document.getElementById('countdown-bar');
+    const countdownHeadline = document.getElementById('countdown-headline');
+    const countdownValueElements = document.querySelectorAll('[data-countdown-value]');
+    const countdownLabelElements = document.querySelectorAll('[data-countdown-label]');
+    const headerContent = document.getElementById('header-desktop-content');
+    const countdownInner = document.getElementById('countdown-inner');
 
     if (pageHeader) {
       const mainNav = document.getElementById('main-nav');
@@ -2676,24 +2698,39 @@
           pageHeader.classList.remove('bg-white', 'shadow-md');
 
           // Change mobile trigger button color for better visibility on scroll.
-          if (window.scrollY > 20) {
-            if (newMobileTrigger) {
-              newMobileTrigger.classList.remove('text-white');
-              newMobileTrigger.classList.add('text-gray-800');
-            }
-          } else {
-            if (newMobileTrigger) {
-              newMobileTrigger.classList.add('text-white');
-              newMobileTrigger.classList.remove('text-gray-800');
-            }
+          if (newMobileTrigger) {
+            newMobileTrigger.classList.add('text-white');
+            newMobileTrigger.classList.remove('text-gray-800');
           }
+          if (countdownBar) {
+            countdownBar.classList.remove('bg-white/95', 'border-gray-200');
+            countdownBar.classList.add('bg-black/40', 'border-white/10');
+          }
+          if (countdownHeadline) {
+            countdownHeadline.classList.add('text-gray-200');
+            countdownHeadline.classList.remove('text-gray-700');
+          }
+          if (countdownInner) {
+            countdownInner.classList.add('py-3', 'md:py-5');
+            countdownInner.classList.remove('py-4', 'md:py-4');
+          }
+          countdownValueElements.forEach(el => {
+            el.classList.add('text-white');
+            el.classList.remove('text-gray-900');
+          });
+          countdownLabelElements.forEach(el => {
+            el.classList.add('text-gray-300');
+            el.classList.remove('text-gray-500');
+          });
         }
         // On desktop, manage the full header bar's appearance.
         else {
           if (window.scrollY > 20) {
             pageHeader.classList.add('bg-white', 'shadow-md');
-            pageHeader.classList.remove('py-6');
-            pageHeader.classList.add('py-4');
+            if (headerContent) {
+              headerContent.classList.add('py-4');
+              headerContent.classList.remove('py-5');
+            }
             if (mainNav) {
               mainNav.classList.remove('text-gray-300');
               mainNav.classList.add('text-gray-800');
@@ -2702,10 +2739,32 @@
                 link.classList.add('hover:text-black');
               });
             }
+            if (countdownBar) {
+              countdownBar.classList.add('bg-white/95', 'border-gray-200');
+              countdownBar.classList.remove('bg-black/40', 'border-white/10');
+            }
+            if (countdownHeadline) {
+              countdownHeadline.classList.add('text-gray-700');
+              countdownHeadline.classList.remove('text-gray-200');
+            }
+            if (countdownInner) {
+              countdownInner.classList.add('py-3', 'md:py-4');
+              countdownInner.classList.remove('md:py-5');
+            }
+            countdownValueElements.forEach(el => {
+              el.classList.add('text-gray-900');
+              el.classList.remove('text-white');
+            });
+            countdownLabelElements.forEach(el => {
+              el.classList.add('text-gray-500');
+              el.classList.remove('text-gray-300');
+            });
           } else {
             pageHeader.classList.remove('bg-white', 'shadow-md');
-            pageHeader.classList.add('py-6');
-            pageHeader.classList.remove('py-4');
+            if (headerContent) {
+              headerContent.classList.add('py-5');
+              headerContent.classList.remove('py-4');
+            }
             if (mainNav) {
               mainNav.classList.add('text-gray-300');
               mainNav.classList.remove('text-gray-800');
@@ -2714,6 +2773,26 @@
                 link.classList.remove('hover:text-black');
               });
             }
+            if (countdownBar) {
+              countdownBar.classList.add('bg-black/40', 'border-white/10');
+              countdownBar.classList.remove('bg-white/95', 'border-gray-200');
+            }
+            if (countdownHeadline) {
+              countdownHeadline.classList.add('text-gray-200');
+              countdownHeadline.classList.remove('text-gray-700');
+            }
+            if (countdownInner) {
+              countdownInner.classList.add('py-3', 'md:py-5');
+              countdownInner.classList.remove('md:py-4');
+            }
+            countdownValueElements.forEach(el => {
+              el.classList.add('text-white');
+              el.classList.remove('text-gray-900');
+            });
+            countdownLabelElements.forEach(el => {
+              el.classList.add('text-gray-300');
+              el.classList.remove('text-gray-500');
+            });
           }
         }
       };
@@ -2721,6 +2800,80 @@
       window.addEventListener('scroll', handleScroll);
       window.addEventListener('resize', handleScroll); // Re-run logic on resize for responsiveness
       handleScroll(); // Also run on initial page load
+    }
+
+    // --- Script do Contador de Lote ---
+    const COUNTDOWN_TARGET = {
+      year: 2025,
+      // mês em base zero (0 = janeiro, 9 = outubro)
+      monthIndex: 9,
+      day: 24,
+      hour: 20,
+      minute: 0,
+      second: 0,
+      timezoneOffsetMinutes: 180 // 3 horas de diferença (BRT)
+    };
+    const countdownTargetTimestamp = (() => {
+      const {
+        year,
+        monthIndex,
+        day,
+        hour,
+        minute,
+        second,
+        timezoneOffsetMinutes
+      } = COUNTDOWN_TARGET;
+
+      // Converte a data/hora alvo (considerando o fuso informado) para UTC.
+      const targetUTC = Date.UTC(year, monthIndex, day, hour + timezoneOffsetMinutes / 60, minute, second);
+      return targetUTC;
+    })();
+    const countdownUnits = countdownValueElements.length ? Array.from(countdownValueElements).reduce((acc, el) => {
+      const unit = el.dataset.countdownValue;
+      if (unit) {
+        acc[unit] = el;
+      }
+      return acc;
+    }, {}) : {};
+
+    if (!Number.isNaN(countdownTargetTimestamp) && ['days', 'hours', 'minutes', 'seconds'].every(unit => countdownUnits[unit])) {
+      const formatValue = (value) => String(Math.max(0, value)).padStart(2, '0');
+
+      const renderCountdown = (days, hours, minutes, seconds) => {
+        countdownUnits.days.textContent = String(Math.max(0, days)).padStart(2, '0');
+        countdownUnits.hours.textContent = formatValue(hours);
+        countdownUnits.minutes.textContent = formatValue(minutes);
+        countdownUnits.seconds.textContent = formatValue(seconds);
+      };
+
+      const updateCountdown = () => {
+        const now = Date.now();
+        const diff = countdownTargetTimestamp - now;
+
+        if (diff <= 0) {
+          renderCountdown(0, 0, 0, 0);
+          return false;
+        }
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const days = Math.floor(totalSeconds / 86400);
+        const hours = Math.floor((totalSeconds % 86400) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        renderCountdown(days, hours, minutes, seconds);
+        return true;
+      };
+
+      let countdownActive = updateCountdown();
+      if (countdownActive) {
+        const countdownInterval = setInterval(() => {
+          countdownActive = updateCountdown();
+          if (!countdownActive || (countdownBar && !document.body.contains(countdownBar))) {
+            clearInterval(countdownInterval);
+          }
+        }, 1000);
+      }
     }
 
     // --- Script do Novo Menu Mobile de Rodapé ---

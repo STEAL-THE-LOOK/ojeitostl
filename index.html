@@ -472,6 +472,21 @@
     }
 
     /* --- FIM DOS ESTILOS PARA ANIMAÇÃO DE EMOJI --- */
+
+    /* --- EFEITO DE TILT NAS IMAGENS DO TIME STL --- */
+    .tilt-card {
+      perspective: 1000px;
+    }
+
+    .tilt-card .tilt-media {
+      transition: transform 0.3s ease;
+      will-change: transform;
+      transform-style: preserve-3d;
+    }
+
+    .tilt-card.is-tilting .tilt-media {
+      transition-duration: 0.08s;
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -586,7 +601,7 @@
         <div
           class="flex flex-col justify-center items-center gap-y-16 md:gap-4 md:grid md:grid-cols-[auto_1fr_auto] md:items-center h-full w-full text-center">
           <aside class="flex items-center justify-center md:h-full order-1 md:order-1">
-            <span class="uppercase tracking-widest text-xs text-gray-400 font-playfair">Todo o Brasil</span>
+            <span class="uppercase tracking-widest text-xs text-white font-playfair">Todo o Brasil</span>
           </aside>
 
           <main class="flex flex-col items-center justify-center text-center order-2 md:order-2">
@@ -601,7 +616,7 @@
           </main>
 
           <aside class="flex items-center justify-center md:h-full order-3 md:order-3">
-            <span class="uppercase tracking-widest text-xs text-gray-400 font-playfair">Mar - Ago /
+            <span class="uppercase tracking-widest text-xs text-white font-playfair">Mar - Ago /
               2026</span>
           </aside>
         </div>
@@ -870,10 +885,10 @@
           <div class="w-full flex flex-col sm:flex-row justify-center gap-x-12 gap-y-16">
             <!-- Card Manuela -->
             <div class="w-full max-w-sm">
-              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                 <img loading="lazy" decoding="async"
                   src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/rectangle-16-20250930174935.png"
-                  alt="Foto de Manuela Bordasch" class="w-full h-full object-cover filter grayscale">
+                  alt="Foto de Manuela Bordasch" class="w-full h-full object-cover filter grayscale tilt-media">
               </div>
               <div class="text-center">
                 <h3 class="font-montserrat text-xl font-bold text-gray-900">Manuela Bordasch</h3>
@@ -885,10 +900,10 @@
 
             <!-- Card Laís -->
             <div class="w-full max-w-sm">
-              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                 <img loading="lazy" decoding="async"
                   src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/lais-miranda-20250930174935.png"
-                  alt="Foto de Laís Miranda" class="w-full h-full object-cover filter grayscale">
+                  alt="Foto de Laís Miranda" class="w-full h-full object-cover filter grayscale tilt-media">
               </div>
               <div class="text-center">
                 <h3 class="font-montserrat text-xl font-bold text-gray-900">Laís Miranda</h3>
@@ -900,10 +915,10 @@
 
             <!-- Card Isabella -->
             <div class="w-full max-w-sm">
-              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                 <img loading="lazy" decoding="async"
                   src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/isabella-aredes-20250930174935.png"
-                  alt="Foto de Isabella Aredes" class="w-full h-full object-cover filter grayscale">
+                  alt="Foto de Isabella Aredes" class="w-full h-full object-cover filter grayscale tilt-media">
               </div>
               <div class="text-center">
                 <h3 class="font-montserrat text-xl font-bold text-gray-900">Isabella Aredes</h3>
@@ -917,10 +932,10 @@
           <div class="w-full flex flex-col md:flex-row justify-center gap-x-12 gap-y-16">
             <!-- Card Claudiana -->
             <div class="w-full max-w-sm">
-              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                 <img loading="lazy" decoding="async"
                   src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/claudiana-ribeiro-20250930174935.png"
-                  alt="Foto de Claudiana Ribeiro" class="w-full h-full object-cover filter grayscale">
+                  alt="Foto de Claudiana Ribeiro" class="w-full h-full object-cover filter grayscale tilt-media">
               </div>
               <div class="text-center">
                 <h3 class="font-montserrat text-xl font-bold text-gray-900">Claudiana Ribeiro</h3>
@@ -933,10 +948,10 @@
 
             <!-- Card Bruna -->
             <div class="w-full max-w-sm">
-              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                 <img loading="lazy" decoding="async"
                   src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/bruna-fortino-20250930174935.png"
-                  alt="Foto de Bruna Fortino" class="w-full h-full object-cover filter grayscale">
+                  alt="Foto de Bruna Fortino" class="w-full h-full object-cover filter grayscale tilt-media">
               </div>
               <div class="text-center">
                 <h3 class="font-montserrat text-xl font-bold text-gray-900">Bruna Fortino</h3>
@@ -948,10 +963,10 @@
 
             <!-- Card Ana -->
             <div class="w-full max-w-sm">
-              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                 <img loading="lazy" decoding="async"
                   src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/rectangle-16-1-20251006193539.png"
-                  alt="Foto de Ana Brum" class="w-full h-full object-cover filter grayscale">
+                  alt="Foto de Ana Brum" class="w-full h-full object-cover filter grayscale tilt-media">
               </div>
               <div class="text-center">
                 <h3 class="font-montserrat text-xl font-bold text-gray-900">Ana Brum</h3>
@@ -976,10 +991,11 @@
 
 
               <div class="w-full max-w-sm mx-auto">
-                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                   <img loading="lazy" decoding="async"
                     src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/bianca-andrade-1.png"
-                    alt="Foto de Bianca Andrade" class="w-full h-full object-cover object-top filter grayscale">
+                    alt="Foto de Bianca Andrade"
+                    class="w-full h-full object-cover object-top filter grayscale tilt-media">
                 </div>
                 <div class="text-center">
                   <h3 class="font-montserrat text-xl font-bold text-gray-900">Bianca Andrade</h3>
@@ -989,10 +1005,10 @@
               </div>
 
               <div class="w-full max-w-sm mx-auto">
-                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                   <img loading="lazy" decoding="async"
                     src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/pedro-alvim-1.png"
-                    alt="Foto de Pedro Alvim" class="w-full h-full object-cover object-top filter grayscale">
+                    alt="Foto de Pedro Alvim" class="w-full h-full object-cover object-top filter grayscale tilt-media">
                 </div>
                 <div class="text-center">
                   <h3 class="font-montserrat text-xl font-bold text-gray-900">Pedro Alvim</h3>
@@ -1003,10 +1019,10 @@
               </div>
 
               <div class="w-full max-w-sm mx-auto">
-                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                   <img loading="lazy" decoding="async"
                     src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/raffa-lotto-1.png"
-                    alt="Foto de Raffa Lotto" class="w-full h-full object-cover object-top filter grayscale">
+                    alt="Foto de Raffa Lotto" class="w-full h-full object-cover object-top filter grayscale tilt-media">
                 </div>
                 <div class="text-center">
                   <h3 class="font-montserrat text-xl font-bold text-gray-900">Raffa Lotto</h3>
@@ -1016,10 +1032,11 @@
               </div>
 
               <div class="w-full max-w-sm mx-auto">
-                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2]">
+                <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
                   <img loading="lazy" decoding="async"
                     src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/raquel-scherer-1.png"
-                    alt="Foto de Raquel Scherer" class="w-full h-full object-cover object-top filter grayscale">
+                    alt="Foto de Raquel Scherer"
+                    class="w-full h-full object-cover object-top filter grayscale tilt-media">
                 </div>
                 <div class="text-center">
                   <h3 class="font-montserrat text-xl font-bold text-gray-900">Raquel Scherer</h3>
@@ -1961,7 +1978,7 @@
               </div>
             </div>
             <div class="pt-6 mt-6 border-t border-white/10 text-center">
-              <p class="fonttext-[#CDDC39]] mb-4">Vagas Limitadas</p>
+              <p class="text-[#CDDC39] mb-4">Vagas Limitadas</p>
               <div class="mb-6">
                 <span class="text-5xl font-bold font-playfair">
                   <span class="text-3xl align-top font-montserrat font-semibold">12x</span> R$176,17
@@ -3231,6 +3248,125 @@
         }
       }
       // --- FIM: LÓGICA PARA ANIMAÇÃO DE EMOJI ---
+
+      // --- INÍCIO: EFEITO DE TILT NAS IMAGENS DO TIME STL ---
+      const tiltContainers = Array.from(document.querySelectorAll('#time-stl .tilt-card'));
+
+      if (tiltContainers.length) {
+        const mediaPerCard = tiltContainers.map(card => ({
+          card,
+          media: card.querySelector('.tilt-media')
+        })).filter(entry => entry.media);
+
+        if (mediaPerCard.length) {
+          const MAX_TILT_DEG = 10;
+          const applyRotation = (element, rotateX, rotateY) => {
+            element.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          };
+          const resetRotation = (element) => {
+            element.style.transform = '';
+          };
+
+          const pointerMediaQuery = typeof window.matchMedia === 'function'
+            ? window.matchMedia('(hover: hover) and (pointer: fine)')
+            : { matches: false };
+
+          if (pointerMediaQuery.matches) {
+            mediaPerCard.forEach(({ card, media }) => {
+              const setActive = (state) => {
+                card.classList.toggle('is-tilting', state);
+              };
+
+              card.addEventListener('pointerenter', () => setActive(true));
+              card.addEventListener('pointermove', (event) => {
+                const rect = card.getBoundingClientRect();
+                if (!rect.width || !rect.height) {
+                  return;
+                }
+
+                const offsetX = event.clientX - rect.left;
+                const offsetY = event.clientY - rect.top;
+                const xRatio = offsetX / rect.width - 0.5;
+                const yRatio = 0.5 - offsetY / rect.height;
+
+                const rotateY = (xRatio * 2 * MAX_TILT_DEG);
+                const rotateX = (yRatio * 2 * MAX_TILT_DEG);
+
+                applyRotation(media, rotateX.toFixed(2), rotateY.toFixed(2));
+              });
+              card.addEventListener('pointerleave', () => {
+                setActive(false);
+                resetRotation(media);
+              });
+            });
+          } else if ('DeviceOrientationEvent' in window) {
+            const mediaElements = mediaPerCard.map(({ card, media }) => {
+              card.classList.add('is-tilting');
+              return media;
+            });
+
+            const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+            const handleOrientation = (event) => {
+              const beta = clamp(event.beta ?? 0, -30, 30); // X axis (front/back)
+              const gamma = clamp(event.gamma ?? 0, -30, 30); // Y axis (left/right)
+
+              const rotateX = (-beta / 30) * MAX_TILT_DEG; // invert to feel natural
+              const rotateY = (gamma / 30) * MAX_TILT_DEG;
+
+              mediaElements.forEach(media => {
+                applyRotation(media, rotateX.toFixed(2), rotateY.toFixed(2));
+              });
+            };
+
+            const enableOrientation = () => {
+              window.addEventListener('deviceorientation', handleOrientation);
+            };
+
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+              let permissionRequested = false;
+              const cleanup = () => {
+                mediaPerCard.forEach(({ card }) => card.classList.remove('is-tilting'));
+                mediaElements.forEach(resetRotation);
+              };
+
+              const requestPermission = () => {
+                DeviceOrientationEvent.requestPermission()
+                  .then(state => {
+                    if (state === 'granted') {
+                      enableOrientation();
+                    } else {
+                      cleanup();
+                    }
+                  })
+                  .catch(() => {
+                    cleanup();
+                  });
+              };
+
+              const handleFirstGesture = () => {
+                if (permissionRequested) {
+                  return;
+                }
+                permissionRequested = true;
+                document.removeEventListener('touchend', handleFirstGesture);
+                document.removeEventListener('click', handleFirstGesture);
+                requestPermission();
+              };
+
+              document.addEventListener('touchend', handleFirstGesture);
+              document.addEventListener('click', handleFirstGesture);
+            } else {
+              enableOrientation();
+            }
+
+            window.addEventListener('orientationchange', () => {
+              mediaElements.forEach(resetRotation);
+            });
+          }
+        }
+      }
+      // --- FIM: EFEITO DE TILT NAS IMAGENS DO TIME STL ---
     });
   </script>
 

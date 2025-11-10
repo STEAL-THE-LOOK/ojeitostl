@@ -552,13 +552,14 @@
           class="flex flex-wrap items-center justify-between w-full gap-x-6 md:gap-x-10 gap-y-2 text-sm text-gray-300 font-montserrat">
           <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
           <li><a href="#clube" class="hover:text-white transition-colors">O que é</a></li>
-          <li><a href="#perfis" class="hover:text-white transition-colors">Para quem é</a></li>
           <li><a href="#time-stl" class="hover:text-white transition-colors">Time STL</a></li>
           <li><a href="#processo" class="hover:text-white transition-colors">Processo</a></li>
           <!-- <li><a href="#nasceu-para" class="hover:text-white transition-colors">Nasceu Para</a></li> -->
           <li><a href="#onde-e-como" class="hover:text-white transition-colors">Onde e Como</a></li>
           <!-- <li><a href="#real-time" class="hover:text-white transition-colors">Real Time</a></li> -->
           <!-- <li><a href="#real-life" class="hover:text-white transition-colors">Real Life</a></li> -->
+          <li><a href="#participar" class="hover:text-white transition-colors">Como participar</a></li>
+          <li><a href="#perfis" class="hover:text-white transition-colors">Para quem é</a></li>
           <li><a href="#faq" class="hover:text-white transition-colors">Dúvidas</a></li>
         </ul>
       </nav>
@@ -1790,7 +1791,7 @@
                 <span class="font-montserrat text-right">Novembro/25</span>
               </div>
             </div>
-            <div class="pt-6 mt-6 border-t border-white/10 text-center">
+            <div class="pt-6 mt-6 border-t border-white/10 text-center" data-participar-scroll-target>
               <p class="text-[#CDDC39] mb-4">Vagas Limitadas</p>
               <div class="mb-6">
                 <span class="text-5xl font-bold font-playfair">
@@ -1799,6 +1800,7 @@
                 <p class="text-gray-400 font-montserrat text-sm mt-1">ou R$1.670,00 à vista</p>
               </div>
               <a href="https://www.sympla.com.br/evento-online/o-jeito-stl-creative-club/2975335?ticketid=9482986&qty=1&name=&lastname=&email="
+                data-participar-cta
                 target="_blank" rel="noopener noreferrer"
                 class="bg-[#CDDC39] text-black font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors hover:bg-blue-700 inline-block">
                 Entrar no clube
@@ -1912,7 +1914,7 @@
             <div class="p-6 font-montserrat border-t border-l border-white/10 flex items-center justify-center">
               -</div>
 
-            <div class="col-span-3 p-8 border-t border-white/10 text-center">
+            <div class="col-span-3 p-8 border-t border-white/10 text-center" data-participar-scroll-target>
               <p class="font-montserrat text-[#CDDC39] mb-4">Vagas Limitadas</p>
               <div class="mb-6">
                 <span class="text-6xl font-bold font-playfair">
@@ -1921,6 +1923,7 @@
                 <p class="text-gray-400 font-montserrat text-sm mt-1">ou R$1.670,00 à vista</p>
               </div>
               <a href="https://www.sympla.com.br/evento-online/o-jeito-stl-creative-club/2975335?ticketid=9482986&qty=1&name=&lastname=&email="
+                data-participar-cta
                 target="_blank" rel="noopener noreferrer"
                 class="bg-[#E1F73D] text-black rounded-full px-10 py-4 font-semibold hover:bg-opacity-90 transition-all inline-block">
                 Entrar no clube
@@ -2700,12 +2703,18 @@
         <li><a href="#processo"
             class="flex justify-between items-center py-4 px-3 border-b border-gray-200"><span>Processo</span><span
               class="text-gray-400">&rarr;</span></a></li>
+        <li><a href="#onde-e-como"
+            class="flex justify-between items-center py-4 px-3 border-b border-gray-200"><span>Onde e
+              Como</span><span class="text-gray-400">&rarr;</span></a></li>
+        <li><a href="#participar"
+            class="flex justify-between items-center py-4 px-3 border-b border-gray-200"><span>Como
+              participar</span><span class="text-gray-400">&rarr;</span></a></li>
+        <li><a href="#perfis"
+            class="flex justify-between items-center py-4 px-3 border-b border-gray-200"><span>Para quem
+              é</span><span class="text-gray-400">&rarr;</span></a></li>
         <li><a href="#nasceu-para"
             class="flex justify-between items-center py-4 px-3 border-b border-gray-200"><span>Assuntos</span><span
               class="text-gray-400">&rarr;</span></a></li>
-        <li><a href="#onde-e-como"
-            class="flex justify-between items-center py-4 px-3 border-b border-gray-200"><span>Como
-              participar</span><span class="text-gray-400">&rarr;</span></a></li>
         <li><a href="#faq" class="flex justify-between items-center py-4 px-3"><span>Dúvidas</span><span
               class="text-gray-400">&rarr;</span></a></li>
       </ul>
@@ -3151,7 +3160,7 @@
   <div id="principais-botoes-cta" class="fixed inset-x-0 bottom-5 z-50 pointer-events-none">
     <div class="w-full flex justify-center">
       <a href="#participar"
-        class="bg-[#4F46E5] text-white font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors hover:bg-blue-700 pointer-events-auto whitespace-nowrap">
+        class="bg-[#e1f73d] text-black font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors hover:bg-opacity-90 pointer-events-auto whitespace-nowrap">
         Quero entrar no clube
       </a>
     </div>
@@ -3208,6 +3217,7 @@
       // 1. Seleciona todos os elementos necessários
       const menuLinks = document.querySelectorAll('a[href^="#"]'); // Pega todos os links que apontam para uma âncora (#)
       const header = document.getElementById('page-header');
+      const PARTICIPAR_HASH = '#participar';
 
       // Constrói uma lista de seções baseada nos links do menu
       const sections = Array.from(menuLinks).map(link => {
@@ -3219,24 +3229,41 @@
         }
       }).filter(section => section !== null); // Filtra links que não apontam para seções existentes
 
+      const getHeaderOffset = () => header ? header.getBoundingClientRect().height : 0;
+      const clampScrollPosition = (position) => {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        return Math.max(0, Math.min(position, maxScroll));
+      };
 
       // 2. Função de Scroll Suave
       function smoothScrollTo(event) {
         event.preventDefault(); // Impede o comportamento padrão de pular para a âncora
 
         const targetId = event.currentTarget.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
+        const isParticiparLink = targetId === PARTICIPAR_HASH;
+        let targetSection = document.querySelector(targetId);
 
         if (targetSection) {
           // Calcula a altura atual do header, que pode mudar de tamanho
-          const headerHeight = header ? header.offsetHeight : 0;
+          const headerHeight = getHeaderOffset();
+
+          if (isParticiparLink) {
+            const sectionBottom = targetSection.getBoundingClientRect().bottom + window.scrollY;
+            const visibleHeight = Math.max(window.innerHeight - headerHeight, 0);
+            const targetPosition = clampScrollPosition(sectionBottom - visibleHeight);
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            return;
+          }
 
           // Calcula a posição de destino, subtraindo a altura do header
           const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight;
 
           // Executa o scroll suave
           window.scrollTo({
-            top: targetPosition,
+            top: clampScrollPosition(targetPosition),
             behavior: 'smooth'
           });
         }

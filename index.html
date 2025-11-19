@@ -432,16 +432,43 @@
       }
     }
 
-    /* Animação do cursor piscando */
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
+    /* --- ANIMAÇÃO DE FLIP PARA AS PALAVRAS DO HERO --- */
+    .animated-text-wrapper {
+      display: inline-block;
+      perspective: 1100px;
     }
 
-    .blinking-cursor {
-      animation: blink 1s step-end infinite;
-      font-weight: 300;
+    .animated-text-target {
+      display: inline-block;
+      transform-origin: center;
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+    }
+
+    .animated-text-target.is-flipping {
+      animation: flipWord 0.8s ease-in-out both;
+    }
+
+    @keyframes flipWord {
+      0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+      }
+
+      45% {
+        transform: rotateX(90deg);
+        opacity: 0;
+      }
+
+      55% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+      }
+
+      100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+      }
     }
 
     /* --- LOADER DO VÍDEO HERO --- */
@@ -658,7 +685,7 @@
         </ul>
       </nav>
     </div>
-    <div id="countdown-bar" class="flex w-full bg-black/40 backdrop-blur-sm border-t border-b border-white/10">
+    <div id="countdown-bar" class="flex w-full bg-[#1b1b1f] backdrop-blur-sm border-t border-b border-white/10">
       <div id="countdown-inner"
         class="w-full max-w-[1500px] mx-auto px-6 md:px-10 pt-6 pb-[1.8rem] md:py-5 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-between gap-3 md:gap-16 text-left md:text-center">
         <span id="countdown-headline" class="text-sm md:text-base text-gray-100 font-playfair">Aproveite o lote</span>
@@ -726,7 +753,7 @@
               o jeito STL<br>
               de fazer<br>
               <span class="font-normal px-4 py-1 mt-4 inline-block tracking-[0px] font-montserrat text-white">
-                [ <span class="animated-text-target"></span><span class="blinking-cursor">|</span> ]
+                [ <span class="animated-text-wrapper"><span class="animated-text-target"></span></span> ]
               </span>
             </h1>
           </main>
@@ -756,7 +783,7 @@
     <div class="w-full max-w-[1500px] mx-auto px-6 py-12 md:py-20 lg:py-24 bg-white md:bg-transparent">
       <header class="text-center mb-10 ">
         <img loading="lazy" decoding="async"
-          src="https://static.stealthelook.com.br/wp-content/uploads/2025/10/OJEITOSTL-COR-1.png"
+          src="https://static.stealthelook.com.br/wp-content/uploads/2025/11/1-ojeitostl-tag-preto-20251119200238.png"
           alt="Logo O Jeito STL Creative Club" class="mx-auto md:w-[350px] w-[250px] h-auto my-24 md:mb-24 md:mt-0">
       </header>
       <div class="text-center mb-16 md:mb-24">
@@ -777,19 +804,7 @@
               desafios reais juntas, com um objetivo compartilhado: <b>dar um push na carreira e nos
                 negócios.</b>
             </p>
-            <div
-              class="mt-10 text-center md:text-left font-playfair text-2xl text-gray-800 leading-snug flex flex-col md:flex-row md:items-start ">
-              <p class="md:whitespace-nowrap md:pr-6 lg:pr-10">Respire o jeito STL de fazer</p>
-              <div
-                class="mt-4 md:mt-0 flex flex-col items-center md:items-start leading-tight md:leading-snug space-y-1">
-                <span>[Conteúdo]</span>
-                <span>[Negócio]</span>
-                <span>[Estratégia]</span>
-                <span>[Curadoria]</span>
-                <span>[Networking]</span>
-                <span>E muito +</span>
-              </div>
-            </div>
+            
             <div class="my-10 md:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto text-gray-400" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
@@ -930,21 +945,6 @@
               </div>
             </div>
 
-            <!-- Card Bruna -->
-            <div class="w-full max-w-sm">
-              <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
-                <img loading="lazy" decoding="async"
-                  src="https://static.stealthelook.com.br/wp-content/uploads/2025/09/bruna-fortino-20250930174935.png"
-                  alt="Foto de Bruna Fortino" class="w-full h-full object-cover filter grayscale tilt-media">
-              </div>
-              <div class="text-center">
-                <h3 class="font-montserrat text-xl font-bold text-gray-900">Bruna Fortino</h3>
-                <p class="font-montserrat text-gray-600 mt-1 text-sm max-w-xs mx-auto">Gerente Comercial
-                  <br>Steal The Look
-                </p>
-              </div>
-            </div>
-
             <!-- Card Ana -->
             <div class="w-full max-w-sm">
               <div class="mb-4 overflow-hidden rounded-2xl aspect-[3/2] tilt-card">
@@ -1061,7 +1061,7 @@
           <h2 class="section-title font-semibold text-black tracking-[4px] text-[20px] md:text-[28px] font-playfair">
             PROCESSO</h2>
           <p class="mt-4 text-3xl text-black max-w-4xl mx-auto font-montserrat font-regular !leading-[45px]">
-            O processo é mais real quando vivemos ele juntas. Como é a experiência do clube, passo a passo:
+            O processo é mais fácil quando vivemos ele juntas. Quais são as trilhas de conhecimento abordadas?
           </p>
         </header>
         <div>
@@ -1136,8 +1136,8 @@
       class="w-full max-w-[1500px] mx-auto px-6 py-24 md:py-32 lg:py-40 grid grid-cols-1 md:grid-cols-3 md:gap-x-12 lg:gap-x-20 items-start">
 
       <header class="text-center md:text-left md:col-span-1">
-        <h3 class="text-sm font-semibold tracking-[0.2em] text-gray-200 uppercase font-playfair">ONLINE</h3>
-        <h2 class="font-playfair text-5xl md:text-7xl mt-2">Real Time</h2>
+        <h3 class="text-sm font-semibold tracking-[0.2em] text-gray-200 uppercase font-playfair">PRESENCIAL</h3>
+        <h2 class="font-playfair text-5xl md:text-7xl mt-2">On Line</h2>
       </header>
 
       <div class="space-y-8 mt-16 md:mt-0 md:col-span-2">
@@ -1156,7 +1156,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Muito conteúdo no instagram fechado;</p>
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]">Muito conteúdo no instagram fechado;</p>
         </div>
         <div class="flex items-center gap-6 border-b  border-b-2 border-b-2 border-dotted border-gray-400/70 pb-4">
           <div class="flex-shrink-0 w-12 h-12  text-white flex items-center justify-center font-bold font-playfair">
@@ -1173,7 +1173,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Entrevistas com profissionais de
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]">Entrevistas com profissionais de
             referência;</p>
         </div>
         <div class="flex items-center gap-6 border-b  border-b-2 border-dotted border-gray-400/70 pb-4">
@@ -1191,7 +1191,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Playbooks com a curadoria de conteúdo;
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]">Playbooks com a curadoria de conteúdo;
           </p>
         </div>
         <div class="flex items-center gap-6 border-b  border-b-2 border-dotted border-gray-400/70 pb-4">
@@ -1209,7 +1209,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Frameworks para aplicação prática;</p>
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]">Frameworks para aplicação prática;</p>
         </div>
         <div class="flex items-center gap-6 border-b  border-b-2 border-dotted border-gray-400/70 pb-4">
           <div class="flex-shrink-0 w-12 h-12  text-white flex items-center justify-center font-bold font-playfair">
@@ -1226,7 +1226,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Newsletter mensal com tendências;</p>
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]">Newsletter mensal com tendências;</p>
         </div>
         <div class="flex items-center gap-6 border-b  border-b-2 border-dotted border-gray-400/70 pb-4">
 
@@ -1244,7 +1244,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Encontros ao vivo com bate-papo para
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]">Encontros ao vivo com bate-papo para
             aprofundar em
             dúvidas;
           </p>
@@ -1269,7 +1269,7 @@
           participação nas ativações presenciais será definida conforme a disponibilidade de agenda do escritório e seu
           engajamento no clube. Dessa forma, garantimos uma experiência confortável para todas as participantes.
           Lembrando que os custos com transporte, hospedagem e demais despesas ficam sob responsabilidade de cada
-          participante.
+          participante. Os membros sorteados serão avisados com um mês de antecedência para se programar para participar das ativações em São Paulo.
         </p>
       </header>
 
@@ -1298,7 +1298,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Almoço de networking: Evento com passes
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]">Almoço de networking: Evento com passes
             limitados.
           </p>
         </div>
@@ -1317,7 +1317,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Ativações no escritório STL: Acesso
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]">Ativações no escritório STL: Acesso
             restrito para
             as mais
             engajadas do mês;
@@ -1338,10 +1338,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Estagiária por um dia: Acesso restrito
-            para a mais
-            engajadas
-            do mês;</p>
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]">Plateia de gravação dos podcasts:  O que Tem Na Sua Carteira e The Look. O acesso aos encontros presenciais será por meio de sorteio.</p>
         </div>
         <div class="flex items-center gap-6 border-b  border-b-2 border-dotted border-gray-800/30 pb-4">
           <div class="flex-shrink-0 w-12 h-12  text-white flex items-center justify-center font-bold font-playfair">
@@ -1358,11 +1355,7 @@
               </text>
             </svg>
           </div>
-          <p class="font-playfair text-lg md:text-2xl max-w-[600px]">Desconto em eventos: Acesso pré-sale
-            exclusivo e
-            desconto de
-            até 60% para
-            qualquer evento do STL ou PUSH.</p>
+          <p class="font-playfair text-lg md:text-3xl max-w-[600px]"> Descontos: Acesso pré-sale exclusivo, desconto de até 60% para qualquer evento do STL ou PUSH e 15% em produtos do WGSN.</p>
         </div>
       </div>
     </div>
@@ -1394,14 +1387,14 @@
 
       <!-- Título Principal -->
       <div class="mb-16">
-        <h2 class="text-5xl md:text-6xl font-bold text-gray-900 font-montserrat">6 meses, 6 fases.</h2>
+        <h2 class="text-5xl md:text-6xl font-bold text-gray-900 font-montserrat">Fases do Clube</h2>
         <p class="font-playfair text-3xl md:text-5xl italic text-black mt-4">& muito <span
             class="font-playfair not-italic">STL</span></p>
       </div>
 
       <!-- Parágrafo Descritivo -->
       <p class="font-montserrat text-xl md:text-2xl text-black max-w-[34rem] mx-auto !leading-[35px]">
-        O formato pra gente mostrar os segredos, compartilhar os aprendizados e superar desafios juntas:
+        trilhas de conhecimento onde vamos compartilhar nossos segredos e aprender com quem entende de verdade do assunto.
       </p>
 
     </div>
@@ -1430,7 +1423,7 @@
                   <h3 class="font-playfair text-2xl md:text-4xl mt-1 md:mt-2">A cultura da Inovação
                   </h3>
                   <p
-                    class="participants-text font-montserrat text-base mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
+                    class="participants-text font-montserrat text-2xl mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
                     Manuela Bordasch + Laís Miranda + Convidado</p>
                 </div>
               </div>
@@ -1445,7 +1438,7 @@
                 </div>
                 <div class="pt-2 flex-grow">
                   <p
-                    class="font-playfair max-w-[680px] font-light text-base leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500">
+                    class="font-playfair max-w-[680px] font-light text-lg leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500">
                     Criar uma cultura organizacional onde todos estão atentos às tendências, não
                     apenas um "departamento
                     ou profissional", e fazer isso se transformar em agilidade operacional é um
@@ -1476,7 +1469,7 @@
                   <h3 class="font-playfair text-2xl md:text-4xl mt-1 md:mt-2">Agilidade no Conteúdo
                   </h3>
                   <p
-                    class="participants-text font-montserrat text-base mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
+                    class="participants-text font-montserrat text-2xl mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
                     Isabella Aredes + Convidados</p>
                 </div>
               </div>
@@ -1488,7 +1481,7 @@
               <div class="max-w-[1500px] mx-auto flex-grow md:flex md:items-start md:gap-12">
                 <div class="flex-grow md:text-right pt-2">
                   <p
-                    class="font-playfair max-w-[680px] font-light text-base leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500 inline-block">
+                    class="font-playfair max-w-[680px] font-light text-lg leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500 inline-block">
                     Como planejar, criar e distribuir conteúdo de forma eficiente e relevante,
                     mantendo a qualidade e a
                     consistência da marca em um mercado que muda rapidamente.</p>
@@ -1518,7 +1511,7 @@
                   <h3 class="font-playfair text-2xl md:text-4xl mt-1 md:mt-2">Relacionamentos
                     Estratégicos</h3>
                   <p
-                    class="participants-text font-montserrat text-base mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
+                    class="participants-text font-montserrat text-2xl mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
                     Bruna Fortino + Convidados</p>
                 </div>
               </div>
@@ -1533,7 +1526,7 @@
                 </div>
                 <div class="pt-2 flex-grow">
                   <p
-                    class="font-playfair max-w-[680px] font-light text-base leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500">
+                    class="font-playfair max-w-[680px] font-light text-lg leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500">
                     Aprenda a construir e nutrir uma rede de contatos valiosa. Descubra como
                     transformar conexões em
                     parcerias duradouras que impulsionam o crescimento profissional e de negócios de
@@ -1561,7 +1554,7 @@
                   <p class="font-montserrat text-sm uppercase tracking-widest">Junho</p>
                   <h3 class="font-playfair text-2xl md:text-4xl mt-1 md:mt-2">Collabs Criativas</h3>
                   <p
-                    class="participants-text font-montserrat text-base mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
+                    class="participants-text font-montserrat text-2xl mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
                     Manuela Bordasch + Convidados</p>
                 </div>
               </div>
@@ -1573,7 +1566,7 @@
               <div class="max-w-[1500px] mx-auto flex-grow md:flex md:items-start md:gap-12">
                 <div class="flex-grow md:text-right pt-2">
                   <p
-                    class="font-playfair max-w-[680px] font-light text-base leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500 inline-block">
+                    class="font-playfair max-w-[680px] font-light text-lg leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500 inline-block">
                     Explore o poder das colaborações. Entenda como identificar parceiros ideais,
                     estruturar propostas e
                     executar projetos conjuntos que amplificam o alcance e a relevância de todas as
@@ -1605,7 +1598,7 @@
                   <h3 class="font-playfair text-2xl md:text-4xl mt-1 md:mt-2">Métricas que Importam
                   </h3>
                   <p
-                    class="participants-text font-montserrat text-base mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
+                    class="participants-text font-montserrat text-2xl mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
                     Clau Ribeiro + Convidados</p>
                 </div>
               </div>
@@ -1620,7 +1613,7 @@
                 </div>
                 <div class="pt-2 flex-grow">
                   <p
-                    class="font-playfair max-w-[680px] font-light text-base leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500">
+                    class="font-playfair max-w-[680px] font-light text-lg leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500">
                     Vá além das curtidas. Aprenda a definir KPIs, analisar dados e interpretar as
                     métricas que realmente
                     indicam o sucesso e a saúde do seu negócio ou projeto criativo, tomando decisões
@@ -1649,7 +1642,7 @@
                   <h3 class="font-playfair text-2xl md:text-4xl mt-1 md:mt-2">The Creator Business
                   </h3>
                   <p
-                    class="participants-text font-montserrat text-base mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
+                    class="participants-text font-montserrat text-2xl mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
                     Manuela Bordasch + Convidados</p>
                 </div>
               </div>
@@ -1661,7 +1654,7 @@
               <div class="max-w-[1500px] mx-auto flex-grow md:flex md:items-start md:gap-12">
                 <div class="flex-grow md:text-right pt-2">
                   <p
-                    class="font-playfair max-w-[680px] font-light text-base leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500 inline-block">
+                    class="font-playfair max-w-[680px] font-light text-lg leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500 inline-block">
                     Entenda a economia dos criadores de conteúdo. Descubra estratégias para
                     monetizar sua influência,
                     diversificar fontes de receita e construir uma marca pessoal sólida e
@@ -1692,7 +1685,7 @@
                   <h3 class="font-playfair text-2xl md:text-4xl mt-1 md:mt-2">Plataformas do Futuro
                   </h3>
                   <p
-                    class="participants-text font-montserrat text-base mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
+                    class="participants-text font-montserrat text-2xl mt-2 md:mt-3 text-gray-500 group-hover:text-white transition-colors duration-500">
                     Isabella Aredes + Convidados</p>
                 </div>
               </div>
@@ -1707,7 +1700,7 @@
                 </div>
                 <div class="pt-2 flex-grow">
                   <p
-                    class="font-playfair max-w-[680px] font-light text-base leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500">
+                    class="font-playfair max-w-[680px] font-light text-lg leading-relaxed text-gray-700 group-hover:text-white transition-colors duration-500">
                     Antecipe as próximas grandes tendências. Uma análise sobre as novas redes
                     sociais, tecnologias e
                     formatos de conteúdo que irão moldar a comunicação e o marketing nos próximos
@@ -1730,7 +1723,7 @@
       <!-- Cabeçalho da Seção -->
       <header class="text-center mb-16 md:mb-20">
         <h2 class="section-title font-montserrat font-light text-3xl md:text-4xl text-black w-full mx-auto">
-          Todo mês, a cada fase, o Jeito STL l Creative Club vai te entregar:
+          A adesão ao clube inclui:
         </h2>
       </header>
 
@@ -1738,30 +1731,59 @@
       <div class="w-full md:w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-[20px]">
         <!-- Card 1 -->
         <div class="bg-gray-100 rounded-2xl p-8">
-          <p class="font-playfair text-gray-800">[1] Entrevista com profissional referência no assunto.</p>
+          <div class="font-playfair text-gray-800 flex flex-col items-center text-center gap-2">
+            <span class="text-3xl" aria-hidden="true">📱</span>
+            <span>Acesso ao Instagram fechado.</span>
+          </div>
         </div>
         <!-- Card 2 -->
         <div class="bg-gray-100 rounded-2xl p-8">
-          <p class="font-playfair text-gray-800">[1] Framework para aplicação prática.</p>
+          <div class="font-playfair text-gray-800 flex flex-col items-center text-center gap-2">
+            <span class="text-3xl" aria-hidden="true">🎟️</span>
+            <span>Acesso a eventos presenciais.</span>
+          </div>
         </div>
         <!-- Card 3 -->
         <div class="bg-gray-100 rounded-2xl p-8">
-          <p class="font-playfair text-gray-800">[1] Playbook com a curadoria de conteúdo da entrevista.</p>
+          <div class="font-playfair text-gray-800 flex flex-col items-center text-center gap-2">
+            <span class="text-3xl" aria-hidden="true">🎤</span>
+            <span>Entrevistas com especialistas.</span>
+          </div>
         </div>
         <!-- Card 4 -->
         <div class="bg-gray-100 rounded-2xl p-8">
-          <p class="font-playfair text-gray-800">[1] Encontro online & ao vivo pra um bate-papo aprofundado ao
-            final de
-            cada fase.</p>
+          <div class="font-playfair text-gray-800 flex flex-col items-center text-center gap-2">
+            <span class="text-3xl" aria-hidden="true">👩‍🏫</span>
+            <span>Aulas livres.</span>
+          </div>
         </div>
         <!-- Card 5 -->
         <div class="bg-gray-100 rounded-2xl p-8">
-          <p class="font-playfair text-gray-800">[1] Newsletter mensal com tendências e ferramentas ligadas ao
-            tema.</p>
+          <div class="font-playfair text-gray-800 flex flex-col items-center text-center gap-2">
+            <span class="text-3xl" aria-hidden="true">🖤</span>
+            <span>Descontos de membros em nossos eventos.</span>
+          </div>
         </div>
         <!-- Card 6 -->
         <div class="bg-gray-100 rounded-2xl p-8">
-          <p class="font-playfair text-gray-800">Conteúdos semanais no Instagram fechado.</p>
+          <div class="font-playfair text-gray-800 flex flex-col items-center text-center gap-2">
+            <span class="text-3xl" aria-hidden="true">💸</span>
+            <span>15% de desconto nos produtos WGSN.</span>
+          </div>
+        </div>
+        <!-- Card 7 -->
+        <div class="bg-gray-100 rounded-2xl p-8">
+          <div class="font-playfair text-gray-800 flex flex-col items-center text-center gap-2">
+            <span class="text-3xl" aria-hidden="true">📒</span>
+            <span>Acesso a materiais exclusivos.</span>
+          </div>
+        </div>
+        <!-- Card 8 -->
+        <div class="bg-gray-100 rounded-2xl p-8">
+          <div class="font-playfair text-gray-800 flex flex-col items-center text-center gap-2">
+            <span class="text-3xl" aria-hidden="true">💻</span>
+            <span>Acesso ao nosso networking.</span>
+          </div>
         </div>
       </div>
 
@@ -1984,11 +2006,6 @@
           PARA
           QUEM É?
         </h2>
-        <h2 class="text-4xl md:text-5xl font-playfair text-gray-800 px-3 md:px-0 leading-[55px] md:leading-relaxed">
-          Quem
-          é você no Jeito
-          STL Creative
-          Club?</h2>
       </header>
 
       <div class="border-b border-gray-300">
@@ -2120,8 +2137,7 @@
         <header class="text-center mb-16 md:mb-0">
           <h2
             class="section-title font-semibold text-black pb-20 tracking-[4px] text-[20px] md:text-[28px] font-playfair">
-            O
-            CREATIVE CLUB NASCEU PARA</h2>
+            O JEITO STL FOI CRIADO PARA</h2>
         </header>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
@@ -2140,8 +2156,7 @@
               <foreignObject x="120" y="15" width="260" height="120">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="flex h-full items-center p-2">
                   <p class="font-playfair text-lg text-gray-700 leading-relaxed">
-                    Ser uma rede de apoio com quem você pode contar, trocar e compartilhar
-                    experiências.
+                    Ser uma rede de apoio de profissionais relevantes que você pode contar.
                   </p>
                 </div>
               </foreignObject>
@@ -2163,7 +2178,7 @@
               <foreignObject x="120" y="15" width="260" height="120">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="flex h-full items-center p-2">
                   <p class="font-playfair text-lg text-gray-700 leading-relaxed">
-                    Ativar um networking relevante para você crescer na carreira.
+                    Compartilhar o conhecimento e a experiência acumulados em quase 14 anos de atuação em plataformas digitais.
                   </p>
                 </div>
               </foreignObject>
@@ -2185,8 +2200,7 @@
               <foreignObject x="120" y="15" width="260" height="120">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="flex h-full items-center p-2">
                   <p class="font-playfair text-lg text-gray-700 leading-relaxed">
-                    Ensinar como fazer curadoria de conteúdos relevantes em um mar de conteúdos
-                    ruins.
+                    Abrir as portas de oportunidades para impulsionar sua carreira e seus negócios.
                   </p>
                 </div>
               </foreignObject>
@@ -2813,7 +2827,7 @@
           }
           if (countdownBar) {
             countdownBar.classList.remove('bg-white/95', 'border-gray-200');
-            countdownBar.classList.add('bg-black/40', 'border-white/10');
+            countdownBar.classList.add('bg-[#1b1b1f]', 'border-white/10');
           }
           if (countdownHeadline) {
             countdownHeadline.classList.add('text-gray-200');
@@ -2850,7 +2864,7 @@
             }
             if (countdownBar) {
               countdownBar.classList.add('bg-white/95', 'border-gray-200');
-              countdownBar.classList.remove('bg-black/40', 'border-white/10');
+              countdownBar.classList.remove('bg-[#1b1b1f]', 'border-white/10');
             }
             if (countdownHeadline) {
               countdownHeadline.classList.add('text-gray-700');
@@ -2884,7 +2898,7 @@
               });
             }
             if (countdownBar) {
-              countdownBar.classList.add('bg-black/40', 'border-white/10');
+              countdownBar.classList.add('bg-[#1b1b1f]', 'border-white/10');
               countdownBar.classList.remove('bg-white/95', 'border-gray-200');
             }
             if (countdownHeadline) {
@@ -3073,43 +3087,33 @@
       if (animatedTextElements.length > 0) {
         const words = ['estratégia', 'networking', 'conteúdo', 'negócio', 'curadoria'];
         let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+        const flipDuration = 800;
+        const displayDuration = 1500;
 
-        function type() {
-          const currentWord = words[wordIndex];
-          let displayText = '';
+        animatedTextElements.forEach(el => {
+          el.textContent = words[wordIndex];
+        });
 
-          if (isDeleting) {
-            // Deleting text
-            displayText = currentWord.substring(0, charIndex - 1);
-            charIndex--;
-          } else {
-            // Typing text
-            displayText = currentWord.substring(0, charIndex + 1);
-            charIndex++;
-          }
+        const triggerFlip = () => {
+          const nextIndex = (wordIndex + 1) % words.length;
 
-          // Update text for all elements with the class
-          animatedTextElements.forEach(el => el.textContent = displayText);
+          animatedTextElements.forEach(el => {
+            el.classList.add('is-flipping');
 
-          let typeSpeed = isDeleting ? 100 : 200;
+            window.setTimeout(() => {
+              el.textContent = words[nextIndex];
+            }, flipDuration / 2);
 
-          if (!isDeleting && charIndex === currentWord.length) {
-            // Pause at the end of the word before deleting
-            typeSpeed = 2000;
-            isDeleting = true;
-          } else if (isDeleting && charIndex === 0) {
-            // Finished deleting, move to the next word
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-            typeSpeed = 500; // Pause before typing the new word
-          }
+            window.setTimeout(() => {
+              el.classList.remove('is-flipping');
+            }, flipDuration);
+          });
 
-          setTimeout(type, typeSpeed);
-        }
+          wordIndex = nextIndex;
+          window.setTimeout(triggerFlip, displayDuration);
+        };
 
-        type(); // Start the animation
+        window.setTimeout(triggerFlip, displayDuration);
       }
 
 
@@ -3187,15 +3191,15 @@
     <div class="w-full flex justify-center">
       <a href="https://www.sympla.com.br/evento-online/o-jeito-stl-creative-club/2975335?ticketid=9509973&qty=1&name=&lastname=&email="
         target="_blank" rel="noopener noreferrer"
-        class="bg-[#e1f73d] text-black font-semibold text-sm rounded-full px-6 py-3.5 shadow-lg transition-colors hover:bg-opacity-90 pointer-events-auto whitespace-nowrap">
+        class="bg-[#e1f73d] text-black font-semibold text-base rounded-full px-7 py-4 shadow-lg transition-colors hover:bg-opacity-90 pointer-events-auto whitespace-nowrap">
         Quero entrar no clube
       </a>
     </div>
 
     <div class="absolute inset-y-0 right-5 flex items-center pointer-events-auto">
       <a href="https://wa.me/message/JJHELF72IJELF1" target="_blank" rel="noopener noreferrer"
-        class="bg-[#25D366] p-3 rounded-full shadow-lg transition-colors hover:bg-[#1DAE58] block">
-        <svg class="w-7 h-7" fill="#fff" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        class="bg-[#25D366] p-3.5 rounded-full shadow-lg transition-colors hover:bg-[#1DAE58] block">
+        <svg class="w-8 h-8" fill="#fff" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
           stroke="#fff">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

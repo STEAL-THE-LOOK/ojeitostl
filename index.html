@@ -1699,7 +1699,7 @@
                   <div>
                     <span class="font-montserrat">Conteúdos e ativações prévias</span>
                     <span class="block text-xs text-gray-400">[ de Novembro a Fevereiro/26 ]</span>
-                  </div>
+                  </div>  
                   <span class="font-montserrat text-right">Apenas gravação</span>
                 </div>
                 <div class="flex justify-between items-center pb-3">
@@ -2638,9 +2638,9 @@
 
       // --- Script do Contador de Lote ---
       const COUNTDOWN_TARGET = {
-        year: 2025,
+        year: 2026,
         // mês em base zero (0 = janeiro, 11 = dezembro)
-        monthIndex: 11,
+        monthIndex: 0,
         day: 11,
         hour: 23,
         minute: 59,
@@ -3175,7 +3175,7 @@
                 enableOrientation();
               }
 
-              window.addEventListener('orientatiogitnchange', () => {
+              window.addEventListener('orientationchange', () => {
                 mediaElements.forEach(resetRotation);
               });
             }

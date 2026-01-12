@@ -2928,7 +2928,7 @@
       year: 2026,
       // mês em base zero (0 = janeiro, 11 = dezembro)
       monthIndex: 0,
-      day: 11,
+      day: 12,
       hour: 23,
       minute: 59,
       second: 0,
@@ -2973,6 +2973,10 @@
 
         if (diff <= 0) {
           renderCountdown(0, 0, 0, 0);
+          // Esconde o countdown-bar quando chegar a zero
+          if (countdownBar) {
+            countdownBar.style.display = 'none';
+          }
           return false;
         }
 
@@ -2994,6 +2998,11 @@
             clearInterval(countdownInterval);
           }
         }, 1000);
+      } else {
+        // Se já expirou ao carregar, esconde imediatamente
+        if (countdownBar) {
+          countdownBar.style.display = 'none';
+        }
       }
     }
 

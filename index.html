@@ -577,6 +577,50 @@
     .tilt-card.is-tilting .tilt-media {
       transition-duration: 0.08s;
     }
+
+    /* --- MODAL LISTA DE ESPERA --- */
+    .waitlist-modal-overlay {
+      backdrop-filter: blur(4px);
+    }
+
+    .waitlist-modal-panel {
+      animation: waitlistModalIn 0.22s ease-out;
+      scrollbar-gutter: stable;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .waitlist-modal-panel::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .waitlist-modal-panel::-webkit-scrollbar-track {
+      background: transparent;
+      margin: 16px 0;
+    }
+
+    .waitlist-modal-panel::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 9999px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+
+    .waitlist-modal-panel::-webkit-scrollbar-thumb:hover {
+      background-color: #94a3b8;
+    }
+
+    @keyframes waitlistModalIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -650,6 +694,8 @@
         </ul>
       </nav>
     </div>
+
+    
     <div id="countdown-bar" class="flex w-full bg-[#1b1b1f] backdrop-blur-sm border-t border-b border-white/10">
       <div id="countdown-inner"
         class="w-full max-w-[1500px] mx-auto px-6 md:px-10 pt-6 pb-[1.8rem] md:py-5 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-between gap-3 md:gap-16 text-left md:text-center">
@@ -2636,22 +2682,124 @@
   </footer>
   <!-- FIM DO RODAPÉ -->
 
-  <!-- Modal de Inscrição (inicialmente oculto) -->
-  <!-- <div id="signup-modal" class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
-    <div class="bg-gray-900 rounded-lg shadow-xl p-8 max-w-md w-full text-center relative animate-fade-in">
-      <button id="close-modal-button"
-        class="absolute top-3 right-4 text-gray-500 hover:text-white text-2xl">&times;</button>
-      <h2 class="text-2xl font-bold mb-4">Bem-vindo(a) ao Clube!</h2>
-      <p class="text-gray-300 mb-6">Ficamos felizes com seu interesse. Deixe seu e-mail para receber novidades.
-      </p>
-      <form class="flex flex-col space-y-4">
-        <input type="email" placeholder="seu.email@exemplo.com"
-          class="bg-gray-800 border border-gray-700 rounded-md p-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <button type="submit"
-          class="bg-blue-600 text-white rounded-md px-6 py-3 font-semibold hover:bg-blue-700 transition-all">Enviar</button>
-      </form>
+  <!-- Modal Lista de Espera -->
+  <div id="signup-modal"
+    class="hidden fixed inset-0 bg-black/70 waitlist-modal-overlay z-[1003] flex items-center justify-center p-4"
+    role="dialog" aria-modal="true" aria-labelledby="waitlist-title">
+    <div data-modal-panel
+      class="waitlist-modal-panel relative w-full max-w-2xl rounded-3xl bg-[#f3f3f3] text-black shadow-2xl max-h-[92vh] overflow-y-auto p-6 md:p-10">
+      <button id="close-modal-button" data-close-waitlist-modal type="button"
+        class="absolute right-5 top-4 text-3xl leading-none text-gray-400 hover:text-black transition-colors"
+        aria-label="Fechar modal">&times;</button>
+
+      <div class="max-w-[620px] mx-auto pr-2 md:pr-3">
+        <h2 id="waitlist-title" class="font-montserrat text-xl md:text-3xl font-bold text-center">Entre na lista de espera</h2>
+        <p class="mt-3 text-center text-sm md:text-base text-gray-600 font-montserrat">Seja avisado(a) quando as portas abrirem novamente.</p>
+
+        <form id="waitlist-form" class="mt-8 space-y-5 text-left" novalidate>
+          <div>
+            <label for="waitlist-name" class="block text-sm md:text-base font-semibold font-montserrat mb-2">Nome completo</label>
+            <input id="waitlist-name" name="nome" type="text" required autocomplete="name" placeholder="Seu nome"
+              class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm md:text-base font-montserrat placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#d0e521] focus:border-[#d0e521]" />
+          </div>
+
+          <div>
+            <label for="waitlist-email" class="block text-sm md:text-base font-semibold font-montserrat mb-2">Email</label>
+            <input id="waitlist-email" name="email" type="email" required autocomplete="email" placeholder="seu@email.com"
+              class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm md:text-base font-montserrat placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#d0e521] focus:border-[#d0e521]" />
+          </div>
+
+          <div>
+            <label for="waitlist-phone" class="block text-sm md:text-base font-semibold font-montserrat mb-2">WhatsApp com DDD</label>
+            <input id="waitlist-phone" name="whatsapp" type="tel" required inputmode="tel" autocomplete="tel" placeholder="(11) 99999-9999"
+              class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm md:text-base font-montserrat placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#d0e521] focus:border-[#d0e521]" />
+          </div>
+
+          <div>
+            <label for="waitlist-profile" class="block text-sm md:text-base font-semibold font-montserrat mb-2">Qual opção te representa no momento?</label>
+            <select id="waitlist-profile" name="perfil" required
+              class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm md:text-base font-montserrat text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#d0e521] focus:border-[#d0e521]">
+              <option value="" selected disabled>Selecione uma opção</option>
+              <option value="criadora">Sou criadora de conteúdo</option>
+              <option value="empreendedora">Sou empreendedora</option>
+              <option value="marketing">Atuo com marketing/comunicação</option>
+              <option value="transicao">Estou em transição de carreira</option>
+              <option value="estudante">Sou estudante</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="waitlist-state" class="block text-sm md:text-base font-semibold font-montserrat mb-2">De qual cantinho do Brasil você é?</label>
+            <select id="waitlist-state" name="estado" required
+              class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm md:text-base font-montserrat text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#d0e521] focus:border-[#d0e521]">
+              <option value="" selected disabled>Selecione seu estado</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+
+          <fieldset>
+            <legend class="block text-sm md:text-base font-semibold font-montserrat mb-3">Você investe em conteúdo e aprendizado criativo?</legend>
+            <div class="space-y-2 text-sm md:text-base font-montserrat">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="investimento" value="regularmente" required class="h-5 w-5 accent-[#c8df20]" />
+                <span>Sim, já invisto regularmente</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="investimento" value="as-vezes" class="h-5 w-5 accent-[#c8df20]" />
+                <span>Invisto de vez em quando</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="investimento" value="quero-comecar" class="h-5 w-5 accent-[#c8df20]" />
+                <span>Ainda não, mas quero começar</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="flex items-start gap-3 cursor-pointer text-sm md:text-base font-montserrat">
+            <input id="waitlist-consent" name="consentimento" type="checkbox" required class="mt-1 h-5 w-5 accent-[#c8df20]" />
+            <span>Aceito receber comunicações e novidades por email</span>
+          </label>
+
+          <p id="waitlist-error" class="hidden rounded-lg bg-[#fde8e8] text-[#7a1d1d] px-4 py-3 text-sm font-montserrat" role="alert"
+            aria-live="assertive"></p>
+
+          <p id="waitlist-success" class="hidden rounded-lg bg-[#e9f7c0] text-[#314400] px-4 py-3 text-base font-montserrat" role="status"
+            aria-live="polite">Cadastro recebido! Obrigada pelo interesse.</p>
+
+          <button id="waitlist-submit-button" type="submit"
+            class="w-full rounded-full bg-[#c8df20] py-3.5 px-6 text-sm md:text-base font-bold font-montserrat uppercase tracking-wide text-black transition-colors hover:bg-[#b8cf12] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#a2b70f]">
+            Entrar na lista de espera
+          </button>
+        </form>
+      </div>
     </div>
-  </div> -->
+  </div>
 
   <!-- INÍCIO DO NOVO MENU MOBILE DE RODAPÉ -->
   <button id="new-mobile-trigger"
@@ -2722,40 +2870,200 @@
 
   <script>
     // --- Script do Modal de Inscrição ---
-    const ctaButtons = document.querySelectorAll('#cta-button, #cta-button-final, #cta-button-entregaveis, #cta-button-participar');
+    const ctaSelector = '[data-open-waitlist-modal], #cta-button, #cta-button-final, #cta-button-entregaveis, #cta-button-participar, #cta-button-participar-footer-mobile';
+    const ctaButtons = document.querySelectorAll(ctaSelector);
     const modal = document.getElementById('signup-modal');
+    const modalPanel = modal ? modal.querySelector('[data-modal-panel]') : null;
     const closeModalButton = document.getElementById('close-modal-button');
+    const modalForm = document.getElementById('waitlist-form');
+    const modalSubmitButton = document.getElementById('waitlist-submit-button');
+    const errorMessage = document.getElementById('waitlist-error');
+    const successMessage = document.getElementById('waitlist-success');
     const newMobileTrigger = document.getElementById('new-mobile-trigger');
+    const waitlistApiConfig = {
+      endpoint: window.BEEHIIV_WAITLIST_ENDPOINT || '/api/beehiiv-waitlist',
+      timeoutMs: 12000,
+    };
 
-    if (ctaButtons.length > 0 && modal && closeModalButton) {
-      const openModal = () => modal.classList.remove('hidden');
-      const closeModal = () => modal.classList.add('hidden');
+    if (modal && closeModalButton) {
+      let lastFocusedElement = null;
+
+      const getFocusableElements = () => modalPanel ? modalPanel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])') : [];
+
+      const handleModalKeyboard = (event) => {
+        if (event.key === 'Escape') {
+          closeModal();
+          return;
+        }
+
+        if (event.key !== 'Tab') {
+          return;
+        }
+
+        const focusables = Array.from(getFocusableElements()).filter(el => !el.hasAttribute('disabled'));
+        if (focusables.length === 0) {
+          return;
+        }
+
+        const firstElement = focusables[0];
+        const lastElement = focusables[focusables.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
+      };
+
+      const openModal = () => {
+        lastFocusedElement = document.activeElement;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', handleModalKeyboard);
+
+        const firstInput = modal.querySelector('input, select, textarea, button');
+        if (firstInput) {
+          window.setTimeout(() => firstInput.focus(), 20);
+        }
+      };
+
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', handleModalKeyboard);
+
+        if (errorMessage) {
+          errorMessage.classList.add('hidden');
+          errorMessage.textContent = '';
+        }
+
+        if (successMessage) {
+          successMessage.classList.add('hidden');
+        }
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+          lastFocusedElement.focus();
+        }
+      };
 
       ctaButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          e.preventDefault(); // Previne o comportamento padrão do link <a>
+        button.addEventListener('click', (event) => {
+          event.preventDefault();
           openModal();
         });
+      });
+
+      document.addEventListener('click', (event) => {
+        const trigger = event.target.closest(ctaSelector);
+        if (!trigger) {
+          return;
+        }
+
+        event.preventDefault();
+        openModal();
       });
 
       closeModalButton.addEventListener('click', closeModal);
       modal.addEventListener('click', (event) => {
         if (event.target === modal) closeModal();
       });
-    }
 
-    // --- Animação do Modal ---
-    const style = document.createElement('style');
-    style.innerHTML = `
-          @keyframes fadeIn {
-              from { opacity: 0; transform: scale(0.95); }
-              to { opacity: 1; transform: scale(1); }
+      if (modalForm) {
+        const setSubmitState = (isSubmitting) => {
+          if (!modalSubmitButton) {
+            return;
           }
-          .animate-fade-in {
-              animation: fadeIn 0.3s ease-out forwards;
+
+          modalSubmitButton.disabled = isSubmitting;
+          modalSubmitButton.textContent = isSubmitting ? 'Enviando...' : 'Entrar na lista de espera';
+          modalSubmitButton.classList.toggle('opacity-70', isSubmitting);
+          modalSubmitButton.classList.toggle('cursor-not-allowed', isSubmitting);
+        };
+
+        const submitToWaitlistApi = async (payload) => {
+          const controller = new AbortController();
+          const timeoutId = window.setTimeout(() => controller.abort(), waitlistApiConfig.timeoutMs);
+
+          try {
+            const response = await fetch(waitlistApiConfig.endpoint, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(payload),
+              signal: controller.signal,
+            });
+
+            const responseData = await response.json().catch(() => ({}));
+            if (!response.ok) {
+              throw new Error(responseData.message || 'Nao foi possivel concluir o cadastro agora.');
+            }
+
+            return responseData;
+          } finally {
+            clearTimeout(timeoutId);
           }
-        `;
-    document.head.appendChild(style);
+        };
+
+        modalForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          if (!modalForm.checkValidity()) {
+            modalForm.reportValidity();
+            return;
+          }
+
+          if (errorMessage) {
+            errorMessage.classList.add('hidden');
+            errorMessage.textContent = '';
+          }
+
+          if (successMessage) {
+            successMessage.classList.add('hidden');
+          }
+
+          const formData = new FormData(modalForm);
+          const payload = {
+            email: String(formData.get('email') || '').trim().toLowerCase(),
+            fullName: String(formData.get('nome') || '').trim(),
+            phone: String(formData.get('whatsapp') || '').trim(),
+            profile: String(formData.get('perfil') || '').trim(),
+            state: String(formData.get('estado') || '').trim(),
+            investmentMoment: String(formData.get('investimento') || '').trim(),
+            consentEmail: formData.get('consentimento') === 'on',
+            source: 'ojeitostl_waitlist_modal',
+            submittedAt: new Date().toISOString(),
+          };
+
+          setSubmitState(true);
+
+          submitToWaitlistApi(payload)
+            .then(() => {
+              if (successMessage) {
+                successMessage.classList.remove('hidden');
+              }
+
+              modalForm.reset();
+              window.setTimeout(() => {
+                closeModal();
+              }, 1600);
+            })
+            .catch((error) => {
+              if (errorMessage) {
+                errorMessage.textContent = error.name === 'AbortError'
+                  ? 'A requisicao demorou demais. Tente novamente em instantes.'
+                  : (error.message || 'Erro ao enviar seus dados. Tente novamente.');
+                errorMessage.classList.remove('hidden');
+              }
+            })
+            .finally(() => {
+              setSubmitState(false);
+            });
+        });
+      }
+    }
 
     // --- Script do Header Fixo ---
     const pageHeader = document.getElementById('page-header');
@@ -3143,10 +3451,9 @@
 
   <div id="principais-botoes-cta" class="fixed inset-x-0 bottom-5 z-50 pointer-events-none">
     <div class="w-full flex justify-center">
-      <a href="https://www.sympla.com.br/evento-online/o-jeito-stl--creative-club/2975335"
-        target="_blank" rel="noopener noreferrer"
+      <a href="#" id="cta-button-hero-waitlist" data-open-waitlist-modal
         class="bg-[#e1f73d] text-black font-semibold text-base rounded-full px-7 py-4 shadow-lg transition-colors hover:bg-opacity-90 pointer-events-auto whitespace-nowrap">
-        Quero entrar no clube
+        Entrar na lista de espera
       </a>
     </div>
 

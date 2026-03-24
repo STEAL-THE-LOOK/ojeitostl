@@ -15,10 +15,6 @@ export default async function handler(req, res) {
   if (!apiKey || !publicationId) {
     return res.status(500).json({
       message: 'Beehiiv integration is not configured on server',
-      missing: {
-        BEEHIIV_API_KEY: !apiKey,
-        BEEHIIV_PUBLICATION_ID: !publicationId,
-      },
     });
   }
 
@@ -47,24 +43,23 @@ export default async function handler(req, res) {
 
   const customFields = [];
 
-  const addCustomField = (fieldId, value) => {
-    if (!fieldId || !value) {
+  const addCustomField = (name, value) => {
+    if (!name || value === undefined || value === null || value === '') {
       return;
     }
-
     customFields.push({
-      custom_field_id: fieldId,
-      value,
+      name: name,
+      value: String(value),
     });
   };
 
-  addCustomField(process.env.BEEHIIV_CF_FULL_NAME_ID, trimmedName);
-  addCustomField(process.env.BEEHIIV_CF_PHONE_ID, phone);
-  addCustomField(process.env.BEEHIIV_CF_PROFILE_ID, profile);
-  addCustomField(process.env.BEEHIIV_CF_STATE_ID, state);
-  addCustomField(process.env.BEEHIIV_CF_INVESTMENT_ID, investmentMoment);
-  addCustomField(process.env.BEEHIIV_CF_SOURCE_ID, source);
-  addCustomField(process.env.BEEHIIV_CF_SUBMITTED_AT_ID, submittedAt);
+  addCustomField('Nome Completo', trimmedName);
+  addCustomField('WhatsApp', phone);
+  addCustomField('Perfil', profile);
+  addCustomField('Estado', state);
+  addCustomField('Investimento', investmentMoment);
+  addCustomField('Fonte', source);
+  addCustomField('Submetido Em', submittedAt);
 
   const subscriptionPayload = {
     email: cleanEmail,
@@ -94,6 +89,7 @@ export default async function handler(req, res) {
     const responseData = await response.json().catch(() => ({}));
 
     if (!response.ok) {
+      console.error('Beehiiv API Error:', responseData);
       return res.status(response.status).json({
         message: responseData.message || 'Beehiiv subscription failed',
         details: responseData,
@@ -106,6 +102,7 @@ export default async function handler(req, res) {
       status: responseData?.data?.status || null,
     });
   } catch (error) {
+    console.error('Handler Error:', error);
     return res.status(500).json({
       message: 'Unexpected error while sending data to Beehiiv',
       error: error instanceof Error ? error.message : 'unknown_error',
